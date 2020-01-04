@@ -21,8 +21,8 @@
           <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -54,18 +54,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/operation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="651">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#673#1320#0" />
-                <element signature="e#647#1383#0" />
-                <element signature="e#2576#2892#0" />
-                <element signature="e#3013#3167#0" />
-                <element signature="e#3230#3234#0" />
-                <element signature="e#3312#3507#0" />
-                <element signature="e#4348#4492#0" />
-                <element signature="e#4529#4588#0" />
                 <marker date="1578058332863" expanded="true" signature="1432:1966" ph="..." />
                 <marker date="1578058332863" expanded="true" signature="4044:4053" ph="..." />
               </folding>
@@ -73,16 +65,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/es_process.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search_entry.py">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -91,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/similarity_check.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
-              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -104,6 +96,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -146,6 +141,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -304,7 +300,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13948497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14091559" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -338,10 +334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#508#3962#0" />
-            <element signature="e#4027#5343#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -349,18 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="591" lean-forward="true" selection-start-line="591" selection-end-line="591" />
-          <folding>
-            <element signature="e#19297#20006#0" />
-            <element signature="e#20068#20483#0" />
-            <element signature="e#20529#21146#0" />
-            <element signature="e#21197#22220#0" />
-            <element signature="e#22293#23587#0" />
-            <element signature="e#23625#24429#0" />
-            <element signature="e#24476#25260#0" />
-            <element signature="e#25300#25715#0" />
-            <element signature="e#25774#26307#0" />
-            <element signature="e#26391#27439#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -371,62 +351,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/es_operation.py">
+    <entry file="file://$PROJECT_DIR$/es_operation.py" />
+    <entry file="file://$PROJECT_DIR$/parse_PDF.py" />
+    <entry file="file://$PROJECT_DIR$/similarity_check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parse_PDF.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-406">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/search_entry.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/operation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+        <state relative-caret-position="651">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#673#1320#0" />
-            <element signature="e#647#1383#0" />
-            <element signature="e#2576#2892#0" />
-            <element signature="e#3013#3167#0" />
-            <element signature="e#3230#3234#0" />
-            <element signature="e#3312#3507#0" />
-            <element signature="e#4348#4492#0" />
-            <element signature="e#4529#4588#0" />
             <marker date="1578058332863" expanded="true" signature="1432:1966" ph="..." />
             <marker date="1578058332863" expanded="true" signature="4044:4053" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/similarity_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/es_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search_entry.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
