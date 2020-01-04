@@ -11,7 +11,7 @@ from functools import partial
 import urllib
 import importlib
 from pdfminer.pdfpage import PDFPage
-from pdfminer.pdfparser import PDFParser
+from pdfminer.pdfparser import PDFParser, PDFSyntaxError
 from pdfminer.pdfdocument import PDFDocument, PDFTextExtractionNotAllowed
 from pdfminer.pdfdevice import PDFDevice
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
@@ -73,11 +73,16 @@ def parse(DataIO, save_path):
     # create pdf parser
     parser = PDFParser(DataIO)
     # create pdf document
-    doc = PDFDocument(parser)
+    try:
+        doc = PDFDocument(parser)
+    except PDFSyntaxError:
+        print("can't parse this file!")
+        return
     # link document and parser
     parser.set_document(doc)
     # check if the document can be converted to text
     if not doc.is_extractable:
+        print("Can't Parse this File! Ignore it and keep parsing")
         raise PDFTextExtractionNotAllowed
     else:
         # create pdf source manager
@@ -148,5 +153,6 @@ def undo_change_name(source_name):
 
 
 def delete_file(file):
+    ''''It is used to delete useless files'''
     os.remove(file)
     print("Delete the file successfully!")
