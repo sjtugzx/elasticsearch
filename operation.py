@@ -29,7 +29,7 @@ def connect_to_server():
     # allow to connect the server which is not in know_hosts
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     # connect to server
-    ssh.connect(hostname='server.acemap.cn', password='Ggzx04193917..', username='troykuo', port=10001)
+    ssh.connect(hostname='server.acemap.cn', password='', username='', port=10001)
     # execute some commands
     command = ''
     stdin, stdout, stderr = ssh.exec_command(command, get_pty=True)

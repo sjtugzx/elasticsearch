@@ -51,10 +51,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/operation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
+            <state relative-caret-position="2427">
               <caret line="152" selection-start-line="152" selection-end-line="152" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/es_process.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -334,6 +334,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#508#3962#0" />
+            <element signature="e#4027#5343#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -341,6 +345,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="591" lean-forward="true" selection-start-line="591" selection-end-line="591" />
+          <folding>
+            <element signature="e#19297#20006#0" />
+            <element signature="e#20068#20483#0" />
+            <element signature="e#20529#21146#0" />
+            <element signature="e#21197#22220#0" />
+            <element signature="e#22293#23587#0" />
+            <element signature="e#23625#24429#0" />
+            <element signature="e#24476#25260#0" />
+            <element signature="e#25300#25715#0" />
+            <element signature="e#25774#26307#0" />
+            <element signature="e#26391#27439#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -363,22 +379,22 @@
     <entry file="file://$PROJECT_DIR$/search_entry.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/es_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/operation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
+        <state relative-caret-position="2427">
           <caret line="152" selection-start-line="152" selection-end-line="152" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <marker date="1578058332863" expanded="true" signature="1432:1966" ph="..." />
             <marker date="1578058332863" expanded="true" signature="4044:4053" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/es_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
