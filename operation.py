@@ -67,8 +67,7 @@ def extract_info():
 
 def parse(DataIO, save_path):
     '''
-    It is used to pare PDF
-    @return paper content
+    It is used to pare PDF, and save the content to the target path
     '''
     # create pdf parser
     parser = PDFParser(DataIO)
@@ -98,28 +97,24 @@ def parse(DataIO, save_path):
             # get the LTPage obj, including LTTextBox, LTFigure,
             # LTImage, LTTextBoxHorizontal
             layout = device.get_result()
-            paper_context = ""
             for x in layout:
                 try:
                     if isinstance(x, LTTextBoxHorizontal):
                         with open('%s' % save_path, 'a') as f:
                             result = x.get_text()
-                            print(result)
                             f.write(result + '\n')
                 except:
                     print("Failed")
 
-        return paper_context
 
-
-def create_es_index(host, index, body):
+def create_es_index(host, index, id, body):
     '''It is used to create new es index'''
     # create es obj and connect to the engine
     es = elasticsearch.Elasticsearch(host)
     print("es.ping(): ", es.ping())
     # create es index
-    es.indices.create(index=index, body=body)
-    # print("es.indices.get(index) : ",json.dumps(es.indices.get(index), indent=2))
+    es.create(index=index, id=id, body=body)
+    print("es.indices.get(index) : ", json.dumps(es.indices.get(index), indent=2))
 
 
 def delete_es_index(host, index):

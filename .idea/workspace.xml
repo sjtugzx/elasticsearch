@@ -12,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/elasticsearch$es_process.coverage" NAME="es_process Coverage Results" MODIFIED="1578109468453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$es_process.coverage" NAME="es_process Coverage Results" MODIFIED="1578119853340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/elasticsearch$test.coverage" NAME="test Coverage Results" MODIFIED="1578033183248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/elasticsearch$extract_info.coverage" NAME="extract_info Coverage Results" MODIFIED="1578053679684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/elasticsearch$es.coverage" NAME="es Coverage Results" MODIFIED="1578036774765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -30,15 +30,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="21" />
+          <entry key="Python Console" value="46" />
           <entry key="dummy" value="42" />
-          <entry key="py" value="5244" />
+          <entry key="py" value="5688" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="42" />
-          <entry key="Python" value="5265" />
+          <entry key="Python" value="5734" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,33 +55,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/operation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+            <state relative-caret-position="333">
+              <caret line="106" column="35" lean-forward="true" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#673#1245#0" />
-                <element signature="e#1272#2044#0" />
-                <element signature="e#3437#3753#0" />
-                <element signature="e#3794#3988#0" />
-                <element signature="e#4012#4053#0" />
-                <element signature="e#4095#4313#0" />
-                <element signature="e#4355#4499#0" />
-                <element signature="e#4513#4571#0" />
-                <marker date="1578109300531" expanded="true" signature="1411:1945" ph="..." />
-                <marker date="1578109300531" expanded="true" signature="4092:4101" ph="..." />
+                <marker date="1578119592456" expanded="true" signature="1427:1961" ph="..." />
+                <marker date="1578119592456" expanded="true" signature="4115:4124" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/es_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="274">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,8 +116,8 @@
         <option value="$PROJECT_DIR$/extract_info.py" />
         <option value="$PROJECT_DIR$/search_entry.py" />
         <option value="$PROJECT_DIR$/similarity_check.py" />
-        <option value="$PROJECT_DIR$/es_process.py" />
         <option value="$PROJECT_DIR$/operation.py" />
+        <option value="$PROJECT_DIR$/es_process.py" />
       </list>
     </option>
   </component>
@@ -317,7 +311,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7401216" visible="true" weight="0.18554217" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8776824" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -325,9 +319,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.25987843" side_tool="true" weight="0.5918919" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.1223176" side_tool="true" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.7401216" weight="0.0" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.8776824" weight="0.0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -391,29 +385,23 @@
     <entry file="file://$PROJECT_DIR$/search_entry.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/es_process.py">
+    <entry file="file://$PROJECT_DIR$/operation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="333">
+          <caret line="106" column="35" lean-forward="true" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
+          <folding>
+            <marker date="1578119592456" expanded="true" signature="1427:1961" ph="..." />
+            <marker date="1578119592456" expanded="true" signature="4115:4124" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operation.py">
+    <entry file="file://$PROJECT_DIR$/es_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+        <state relative-caret-position="274">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#673#1245#0" />
-            <element signature="e#1272#2044#0" />
-            <element signature="e#3437#3753#0" />
-            <element signature="e#3794#3988#0" />
-            <element signature="e#4012#4053#0" />
-            <element signature="e#4095#4313#0" />
-            <element signature="e#4355#4499#0" />
-            <element signature="e#4513#4571#0" />
-            <marker date="1578109300531" expanded="true" signature="1411:1945" ph="..." />
-            <marker date="1578109300531" expanded="true" signature="4092:4101" ph="..." />
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
