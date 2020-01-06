@@ -8,7 +8,7 @@ class ElasticObj(object):
         self.index_type = index_type
         self.es = Elasticsearch([ip], port=9200)
 
-    def create_index(self, index_name, index_type):
+    def create_index(self, index_name):
         index_setting = {
             "settings": {
                 "index": {
@@ -54,8 +54,8 @@ class ElasticObj(object):
             new_index = self.es.indices.create(index=index_name, body=index_setting)
             print(new_index)
 
-    def delete_index_data(self, id):
-        deleted_index = self.es.delete(index=self.index_name, doc_type=self.index_type, id=id)
+    def delete_index_data(self, pid):
+        deleted_index = self.es.delete(index=self.index_name, doc_type=self.index_type, id=pid)
         print(deleted_index)
 
     def bulk_index_data(self, dataset):
@@ -67,13 +67,15 @@ class ElasticObj(object):
                 "_type": self.index_type,
                 "_id": i,  # _id 也可以默认生成，不赋值
                 "_source": {
-                    # "title":dataset['title'],
-                    # "author":dataset['author'],
-                    # "date":dataset['date'],
                     "context": dataset['context'].decode('utf8')
                 }
             }
             i+=1
             ACTIONS.append(action)
         insert_index=helpers.bulk(self.es,ACTIONS)
+        print('performed %d actions' % insert_index)
 
+    def search(self, info):
+        _searched = self.es.search(index=self.index_name, doc_type=self.index_type, body=info)
+        for hit in _searched['hits']['hits']:
+            print(hit['_source'])
