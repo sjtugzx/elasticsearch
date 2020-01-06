@@ -1,19 +1,11 @@
-import json
 import os
-import time
 import MySQLdb
 import MySQLdb.cursors
-import multiprocessing as mp
-import elasticsearch
-from tqdm import tqdm_notebook as tqdm
 import sys
-from functools import partial
-import urllib
 import importlib
 from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFParser, PDFSyntaxError
 from pdfminer.pdfdocument import PDFDocument, PDFTextExtractionNotAllowed
-from pdfminer.pdfdevice import PDFDevice
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LTTextBoxHorizontal, LAParams
@@ -105,30 +97,6 @@ def parse(DataIO, save_path):
                             f.write(result + '\n')
                 except:
                     print("Failed")
-
-
-def create_es_index(host, index, id, body):
-    '''It is used to create new es index'''
-    # create es obj and connect to the engine
-    es = elasticsearch.Elasticsearch(host)
-    print("es.ping(): ", es.ping())
-    # create es index
-    es.create(index=index, id=id, body=body)
-    print("es.indices.get(index) : ", json.dumps(es.indices.get(index), indent=2))
-
-
-def delete_es_index(host, index):
-    '''It is used to delete es index'''
-    try:
-        es = elasticsearch.Elasticsearch(host)
-        es.indices.delete(index)
-    except Exception as e:
-        print(" option delete error: ", e)
-
-
-def update_es():
-    '''It is used to update index'''
-    pass
 
 
 def change_file_name(source_name):

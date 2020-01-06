@@ -1,4 +1,5 @@
 from elasticsearch import Elasticsearch, RequestsHttpConnection
+from elasticsearch import helpers
 
 
 class ElasticObj(object):
@@ -10,25 +11,36 @@ class ElasticObj(object):
     def create_index(self, index_name, index_type):
         index_setting = {
             "settings": {
+                "index": {
+                    "number_of_shards": "16",
+                    "number_of_replicas": "0"
+                },
                 "analysis": {
                     "filter": {
                         "my_stopwords": {
                             "type": "stop",
                             "stopwords": ["the", "a"]
+                        },
+                        "eng_stemmer": {
+                            "type": "stemmer",
+                            "name": "english"
+                        },
+                        "eng_stop": {
+                            "type": "stop",
+                            "stopwords": "_english_"
                         }
                     },
                     "analyzer": {
                         "acm_paper_analyzer": {
                             "type": "custom",
                             "tokenizer": "standard",
-                            "filter": ["lowercase", "my_stopwords"]
+                            "filter": ["lowercase", "my_stopwords","eng_stemmer","eng_stop","asciifolding"]
                         }
                     }
                 }
             },
             "mappings": {
-                index_type: {  # 相当于数据库中的表名
-                    "properties": {
+                "properties": {
                         "context": {
                             "type": "text",
                             "index": True,
@@ -36,13 +48,15 @@ class ElasticObj(object):
                             "search_analyzer": "acm_paper_analyzer"
                         }
                     }
-                }
             }
         }
+        if not self.es.indices.exists(index=index_name):
+            new_index = self.es.indices.create(index=index_name, body=index_setting)
+            print(new_index)
 
     def delete_index_data(self, id):
-        res = self.es.delete(index=self.index_name, doc_type=self.index_type, id=id)
-        print(res)
+        deleted_index = self.es.delete(index=self.index_name, doc_type=self.index_type, id=id)
+        print(deleted_index)
 
     def bulk_index_data(self, dataset):
         ACTIONS = []
@@ -56,7 +70,10 @@ class ElasticObj(object):
                     # "title":dataset['title'],
                     # "author":dataset['author'],
                     # "date":dataset['date'],
-                    "context": dataset['context']
+                    "context": dataset['context'].decode('utf8')
                 }
-
             }
+            i+=1
+            ACTIONS.append(action)
+        insert_index=helpers.bulk(self.es,ACTIONS)
+
