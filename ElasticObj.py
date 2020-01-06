@@ -3,12 +3,14 @@ from elasticsearch import helpers
 
 
 class ElasticObj(object):
-    def __init__(self, index_name, index_type, ip='127.0.0.1'):
+    def __init__(self, index_name, ip='127.0.0.1'):
         self.index_name = index_name
-        self.index_type = index_type
         self.es = Elasticsearch([ip], port=9200)
 
     def create_index(self):
+        '''
+        It is used for creating new index.
+        '''
         index_setting = {
             "settings": {
                 "index": {
@@ -58,20 +60,29 @@ class ElasticObj(object):
             print("this index has already been created!!!")
 
     def delete_index(self):
+        '''
+        It is used to delete useless index
+        '''
         deleted_index = self.es.indices.delete(index=self.index_name)
         print(deleted_index)
 
     def delete_index_data(self, pid):
-        deleted_index = self.es.delete(index=self.index_name, doc_type=self.index_type, id=pid)
+        '''
+        It is used to delete the data with specific id
+        '''
+        deleted_index = self.es.delete(index=self.index_name, id=pid)
         print(deleted_index)
 
     def bulk_index_data(self, dataset):
+        '''
+        It is used to create index in batch
+        :param dataset: the dataset for creating index
+        '''
         ACTIONS = []
         i = 1
         for data in dataset:
             action = {
                 "_index": self.index_name,
-                # "_type": self.index_type,
                 "_id": i,  # _id 也可以默认生成，不赋值
                 "_source": {
                     "context": data['context']
@@ -81,9 +92,23 @@ class ElasticObj(object):
             ACTIONS.append(action)
         print(ACTIONS[0])
         insert_index=helpers.bulk(self.es,ACTIONS)
-        # print(insert_index)
 
     def search(self, info):
-        _searched = self.es.search(index=self.index_name, body=info)
+        '''
+        It is used to search the information in es
+        :param info: text for searching
+        :return: searching result
+        '''
+        searching_body = {
+            "query": {
+                "match_phrase": {
+                    "context": {
+                        "query": info,
+                        "slop": 4
+                    }
+                }
+            }
+        }
+        _searched = self.es.search(index=self.index_name, body=searching_body)
         for hit in _searched['hits']['hits']:
             print(hit['_source'])

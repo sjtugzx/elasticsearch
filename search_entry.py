@@ -16,14 +16,7 @@ if __name__ == '__main__':
             dataset.append(context)
         cnt+=1
     acm_es.bulk_index_data(dataset)
-    search={
-        "query":{
-            "match_phrase":{
-                "context":{
-                    "query":"Single Scattering in Refractive Media with Triangle Mesh Boundaries",
-                    "slop":4
-                }
-            }
-        }
-    }
-    acm_es.search(search)
+
+    searching_text="Single Scattering in Refractive Media with Triangle Mesh Boundaries"
+
+    acm_es.search(searching_text)
