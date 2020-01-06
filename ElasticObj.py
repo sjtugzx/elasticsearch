@@ -1,5 +1,7 @@
+import elasticsearch
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from elasticsearch import helpers
+import sys
 
 
 class ElasticObj(object):
@@ -71,18 +73,19 @@ class ElasticObj(object):
         for data in dataset:
             action = {
                 "_index": self.index_name,
-                "_type": self.index_type,
+                # "_type": self.index_type,
                 "_id": i,  # _id 也可以默认生成，不赋值
                 "_source": {
-                    "context": dataset['context'].decode('utf8')
+                    "context": data['context']
                 }
             }
             i+=1
             ACTIONS.append(action)
+        print(ACTIONS[0])
         insert_index=helpers.bulk(self.es,ACTIONS)
-        print('performed %d actions' % insert_index)
+        print(insert_index)
 
     def search(self, info):
-        _searched = self.es.search(index=self.index_name, doc_type=self.index_type, body=info)
+        _searched = self.es.search(index=self.index_name, body=info)
         for hit in _searched['hits']['hits']:
             print(hit['_source'])
