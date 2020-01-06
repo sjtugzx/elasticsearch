@@ -3,7 +3,7 @@ from elasticsearch import helpers
 
 
 class ElasticObj(object):
-    def __init__(self, index_name, host='127.0.0.1'):
+    def __init__(self, index_name,host='127.0.0.1'):
         self.index_name = index_name
         self.es = Elasticsearch([{'host': host, 'port': '9200'}])
         print("es.ping(): ", self.es.ping())
@@ -90,8 +90,9 @@ class ElasticObj(object):
             }
             i += 1
             ACTIONS.append(action)
-        print(ACTIONS[0])
+
         insert_index = helpers.bulk(self.es, ACTIONS)
+        print("Create %s indexes successfully!!!" % len(ACTIONS))
 
     def search(self, info):
         '''
@@ -109,6 +110,8 @@ class ElasticObj(object):
                 }
             }
         }
-        _searched = self.es.search(index=self.index_name, body=searching_body)
-        for hit in _searched['hits']['hits']:
+        searched = self.es.search(index=self.index_name, body=searching_body)
+        print(type(searched))
+        print(searched)
+        for hit in searched['hits']['hits']:
             print(hit['_source'])

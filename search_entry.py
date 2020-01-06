@@ -2,7 +2,7 @@ import operation
 from ElasticObj import ElasticObj
 
 if __name__ == '__main__':
-    acm_es = ElasticObj('acm')
+    acm_es = ElasticObj('acm','paper')
     acm_es.delete_index()
     acm_es.create_index()
     cnt = 1
@@ -13,11 +13,9 @@ if __name__ == '__main__':
         data = operation.get_context(filepath)
         if not (data == ''):
             context = {'context': data}
-            # print(context)
             dataset.append(context)
+            print(context)
         cnt += 1
     acm_es.bulk_index_data(dataset)
-
-    searching_text = "Single Scattering in Refractive Media with Triangle Mesh Boundaries"
-
+    searching_text = "Single Scattering"
     acm_es.search(searching_text)
