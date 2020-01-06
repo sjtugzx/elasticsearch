@@ -1,7 +1,5 @@
-import elasticsearch
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from elasticsearch import helpers
-import sys
 
 
 class ElasticObj(object):
@@ -83,7 +81,7 @@ class ElasticObj(object):
             ACTIONS.append(action)
         print(ACTIONS[0])
         insert_index=helpers.bulk(self.es,ACTIONS)
-        print(insert_index)
+        # print(insert_index)
 
     def search(self, info):
         _searched = self.es.search(index=self.index_name, body=info)

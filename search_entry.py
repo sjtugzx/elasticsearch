@@ -1,4 +1,3 @@
-import elasticsearch
 import operation
 from ElasticObj import ElasticObj
 
@@ -19,8 +18,11 @@ if __name__ == '__main__':
     acm_es.bulk_index_data(dataset)
     search={
         "query":{
-            "match":{
-                "context":"An Adaptive Algorithm Selection Framework∗  Hao Yu  IBM"
+            "match_phrase":{
+                "context":{
+                    "query":"Single Scattering in Refractive Media with Triangle Mesh Boundaries",
+                    "slop":4
+                }
             }
         }
     }
