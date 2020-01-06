@@ -1,11 +1,12 @@
-from elasticsearch import Elasticsearch, RequestsHttpConnection
+from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
 
 class ElasticObj(object):
-    def __init__(self, index_name, ip='127.0.0.1'):
+    def __init__(self, index_name, host='127.0.0.1'):
         self.index_name = index_name
-        self.es = Elasticsearch([ip], port=9200)
+        self.es = Elasticsearch([{'host': host, 'port': '9200'}])
+        print("es.ping(): ", self.es.ping())
 
     def create_index(self):
         '''
@@ -36,25 +37,24 @@ class ElasticObj(object):
                         "acm_paper_analyzer": {
                             "type": "custom",
                             "tokenizer": "standard",
-                            "filter": ["lowercase", "my_stopwords","eng_stemmer","eng_stop","asciifolding"]
+                            "filter": ["lowercase", "my_stopwords", "eng_stemmer", "eng_stop", "asciifolding"]
                         }
                     }
                 }
             },
             "mappings": {
                 "properties": {
-                        "context": {
-                            "type": "text",
-                            "index": True,
-                            "analyzer": "acm_paper_analyzer",
-                            "search_analyzer": "acm_paper_analyzer"
-                        }
+                    "context": {
+                        "type": "text",
+                        "index": True,
+                        "analyzer": "acm_paper_analyzer",
+                        "search_analyzer": "acm_paper_analyzer"
                     }
+                }
             }
         }
         if not self.es.indices.exists(index=self.index_name):
             new_index = self.es.indices.create(index=self.index_name, body=index_setting)
-            print("es.ping(): ", self.es.ping())
             print(new_index)
         else:
             print("this index has already been created!!!")
@@ -88,10 +88,10 @@ class ElasticObj(object):
                     "context": data['context']
                 }
             }
-            i+=1
+            i += 1
             ACTIONS.append(action)
         print(ACTIONS[0])
-        insert_index=helpers.bulk(self.es,ACTIONS)
+        insert_index = helpers.bulk(self.es, ACTIONS)
 
     def search(self, info):
         '''
