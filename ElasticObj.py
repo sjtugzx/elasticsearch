@@ -1,32 +1,52 @@
 from elasticsearch import Elasticsearch, RequestsHttpConnection
+
+
 class ElasticObj(object):
-    def __init__(self, index_name,index_type, ip='127.0.0.1'):
-        self.index_name=index_name
-        self.index_type=index_type
-        self.es=Elasticsearch([ip],port=9200)
+    def __init__(self, index_name, index_type, ip='127.0.0.1'):
+        self.index_name = index_name
+        self.index_type = index_type
+        self.es = Elasticsearch([ip], port=9200)
 
     def create_index(self, index_name, index_type):
-        _index_mappings = {
+        index_setting = {
+            "settings": {
+                "analysis": {
+                    "filter": {
+                        "my_stopwords": {
+                            "type": "stop",
+                            "stopwords": ["the", "a"]
+                        }
+                    },
+                    "analyzer": {
+                        "acm_paper_analyzer": {
+                            "type": "custom",
+                            "tokenizer": "standard",
+                            "filter": ["lowercase", "my_stopwords"]
+                        }
+                    }
+                }
+            },
             "mappings": {
                 index_type: {  # 相当于数据库中的表名
                     "properties": {
-                        "context":{
-                            "type":"string",
-                            "index":True,
-                            "store":True
+                        "context": {
+                            "type": "text",
+                            "index": True,
+                            "analyzer": "acm_paper_analyzer",
+                            "search_analyzer": "acm_paper_analyzer"
                         }
                     }
                 }
             }
         }
 
-    def delete_index_data(self,id):
-        res=self.es.delete(index=self.index_name, doc_type=self.index_type, id=id)
+    def delete_index_data(self, id):
+        res = self.es.delete(index=self.index_name, doc_type=self.index_type, id=id)
         print(res)
 
-    def bulk_index_data(self,dataset):
-        ACTIONS=[]
-        i=1
+    def bulk_index_data(self, dataset):
+        ACTIONS = []
+        i = 1
         for data in dataset:
             action = {
                 "_index": self.index_name,
@@ -36,8 +56,7 @@ class ElasticObj(object):
                     # "title":dataset['title'],
                     # "author":dataset['author'],
                     # "date":dataset['date'],
-                    "context":dataset['context']
+                    "context": dataset['context']
                 }
 
             }
-
