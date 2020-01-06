@@ -108,6 +108,17 @@ def change_file_name(source_name):
     return target_name
 
 
+def get_context(file_path):
+    context = ""
+    try:
+        with open(file_path, 'r') as f:
+            context = f.read().replace('\n', ' ')
+    except FileNotFoundError:
+        print("No such file or directory:" + file_path)
+        # print(context)
+    return context
+
+
 def undo_change_name(source_name):
     '''It is used to change name back'''
     target_name = source_name[:-4]

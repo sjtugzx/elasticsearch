@@ -8,7 +8,7 @@ class ElasticObj(object):
         self.index_type = index_type
         self.es = Elasticsearch([ip], port=9200)
 
-    def create_index(self, index_name):
+    def create_index(self):
         index_setting = {
             "settings": {
                 "index": {
@@ -50,9 +50,16 @@ class ElasticObj(object):
                     }
             }
         }
-        if not self.es.indices.exists(index=index_name):
-            new_index = self.es.indices.create(index=index_name, body=index_setting)
+        if not self.es.indices.exists(index=self.index_name):
+            new_index = self.es.indices.create(index=self.index_name, body=index_setting)
+            print("es.ping(): ", self.es.ping())
             print(new_index)
+        else:
+            print("this index has already been created!!!")
+
+    def delete_index(self):
+        deleted_index = self.es.indices.delete(index=self.index_name)
+        print(deleted_index)
 
     def delete_index_data(self, pid):
         deleted_index = self.es.delete(index=self.index_name, doc_type=self.index_type, id=pid)
