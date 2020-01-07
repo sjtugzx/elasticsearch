@@ -171,11 +171,13 @@ def string_similar(s1, s2):
 
 def similarity_checking(index_name, file_path):
     context = get_context(file_path)
+
     if context == '':
         print('something wrong with this file!')
     else:
         # convert from string to list
         context = context.split()
+        print(len(context))
         # set initial position, window size (14) and duplicated context number
         current_position = 0
         window_size = 14
@@ -191,18 +193,23 @@ def similarity_checking(index_name, file_path):
                 window_size = 14
                 slide_window = context[current_position:current_position + window_size]
                 continue
-            while match_flag:
+            while match_flag and window_size<len(context):
                 # increase window size by one and update slide_window
-                window_size += 1
+                window_size += 1000
+                if current_position+window_size>len(context):
+                    window_size=len(context)-current_position+1
                 slide_window = context[current_position:current_position + window_size]
                 context_str = ' '.join(slide_window)
                 match_flag = es_search(index_name, context_str)
-                print(window_size)
+                # print(window_size)
             duplicated_context_number += (window_size - 1)
+            # print(duplicated_context_number)
             # update slide window
             current_position = current_position + window_size - 1
             window_size = 14
             slide_window = context[current_position:current_position + window_size]
             print(current_position)
+        print("duplicated context number", duplicated_context_number)
+        print("total number of this paper", len(context))
         duplicated_rate = duplicated_context_number / len(context)
         print("duplicated rate of this document is ", duplicated_rate)
