@@ -17,6 +17,8 @@ if __name__ == '__main__':
         cnt += 1
     acm_es.bulk_index_data(dataset)
     print('='*150)
-    searching_text = "Optimal Integration of Inter-Task"
-    operation.es_search('acm',searching_text)
+    # searching_text = "Optimal Integration of Inter-Task"
+    # st1=operation.es_search('acm',searching_text)
+    # print(operation.string_similar(searching_text, st1))
     # acm_es.search(searching_text)
+    operation.similarity_checking('acm', "/Users/troykuo/Desktop/acm_papers/3.txt")

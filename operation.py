@@ -1,3 +1,4 @@
+import difflib
 import os
 import MySQLdb
 import MySQLdb.cursors
@@ -135,31 +136,73 @@ def delete_file(file):
 
 def es_search(index_name, info, ip='127.0.0.1'):
     '''
-    search function for es
+    search function for es. Max size=50
     '''
     es = Elasticsearch([ip], port=9200)
-    print("es.ping(): ", es.ping())
+    # print("es.ping(): ", es.ping())
     search_body = {
         "query": {
             "match_phrase": {
                 "context": {
                     "query": info,
-                    "slop": 4
+                    # "slop": 1
                 }
             }
         }
     }
-    result = es.search(index=index_name, body=search_body)
+    result = es.search(index=index_name, size=50, body=search_body)
     similar_text=[]
     for hit in result['hits']['hits']:
-        print(hit['_source']['context'])
+        # print(hit['_source']['context'])
         similar_text.append(hit['_source']['context'])
-    return similar_text
+    if len(similar_text) == 0:
+        # can't find any thing from es
+        # print("Nothing matched!")
+        return False
+    else:
+        # match_phrase
+        # print("The context is matched!")
+        return True
 
 
-def similarity_checking(file_path):
+def string_similar(s1, s2):
+    return difflib.SequenceMatcher(None, s1, s2).quick_ratio()
+
+
+def similarity_checking(index_name, file_path):
     context = get_context(file_path)
     if context == '':
         print('something wrong with this file!')
     else:
-        slide_window = context[0:14]
+        # convert from string to list
+        context = context.split()
+        # set initial position, window size (14) and duplicated context number
+        current_position = 0
+        window_size = 14
+        duplicated_context_number = 0
+        # sliding window initial
+        slide_window = context[current_position:current_position + window_size]
+
+        while len(slide_window) != 0:
+            context_str = ' '.join(slide_window)
+            match_flag = es_search(index_name, context_str)
+            if not match_flag:
+                current_position = current_position + 13
+                window_size = 14
+                slide_window = context[current_position:current_position + window_size]
+                continue
+            while match_flag:
+                # increase window size by one and update slide_window
+                window_size += 1
+                slide_window = context[current_position:current_position + window_size]
+                context_str = ' '.join(slide_window)
+                match_flag = es_search(index_name, context_str)
+                print(window_size)
+            duplicated_context_number += (window_size - 1)
+            # update slide window
+            current_position = current_position + window_size - 1
+            window_size = 14
+            slide_window = context[current_position:current_position + window_size]
+            print(current_position)
+        duplicated_rate = duplicated_context_number / len(context)
+        print("duplicated rate of this document is ", duplicated_rate)
