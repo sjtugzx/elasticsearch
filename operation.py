@@ -189,7 +189,7 @@ def similarity_checking(index_name, file_path):
             context_str = ' '.join(slide_window)
             match_flag = es_search(index_name, context_str)
             if not match_flag:
-                current_position = current_position + 13
+                current_position = current_position + 1
                 window_size = 14
                 slide_window = context[current_position:current_position + window_size]
                 continue
