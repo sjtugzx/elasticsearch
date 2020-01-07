@@ -151,7 +151,7 @@ def es_search(index_name, info, ip='127.0.0.1'):
         }
     }
     result = es.search(index=index_name, size=50, body=search_body)
-    similar_text=[]
+    similar_text = []
     for hit in result['hits']['hits']:
         # print(hit['_source']['context'])
         similar_text.append(hit['_source']['context'])
@@ -193,15 +193,15 @@ def similarity_checking(index_name, file_path):
                 window_size = 14
                 slide_window = context[current_position:current_position + window_size]
                 continue
-            while match_flag and window_size<len(context):
+            while match_flag and window_size < len(context):
                 # increase window size by one and update slide_window
-                window_size += 1000
-                if current_position+window_size>len(context):
-                    window_size=len(context)-current_position+1
+                window_size += 1
+                if current_position + window_size >= len(context):
+                    window_size = len(context) - current_position + 1
                 slide_window = context[current_position:current_position + window_size]
                 context_str = ' '.join(slide_window)
                 match_flag = es_search(index_name, context_str)
-                # print(window_size)
+
             duplicated_context_number += (window_size - 1)
             # print(duplicated_context_number)
             # update slide window

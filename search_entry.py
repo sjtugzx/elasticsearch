@@ -7,7 +7,7 @@ if __name__ == '__main__':
     cnt = 1
     dataset = []
     while cnt <= 10:
-        f_prefix = "/Users/troykuo/Desktop/acm_papers"
+        f_prefix = "data"
         filepath = f_prefix + '/%s.txt' % cnt
         data = operation.get_context(filepath)
         if not (data == ''):
@@ -21,4 +21,4 @@ if __name__ == '__main__':
     # st1=operation.es_search('acm',searching_text)
     # print(operation.string_similar(searching_text, st1))
     # acm_es.search(searching_text)
-    operation.similarity_checking('acm', "/Users/troykuo/Desktop/acm_papers/3.txt")
+    operation.similarity_checking('acm', "data/text.txt")
