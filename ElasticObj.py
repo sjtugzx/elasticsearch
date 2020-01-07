@@ -1,19 +1,27 @@
-from elasticsearch import Elasticsearch, RequestsHttpConnection
+from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
 
 class ElasticObj(object):
     def __init__(self, index_name, ip='127.0.0.1'):
+        '''
+        initial connection host, port and index_name
+        '''
         self.index_name = index_name
         self.es = Elasticsearch([ip], port=9200)
 
     def create_index(self):
+        '''
+        It is used to create new index
+        '''
+        # index setting, including analysis and mappings
         index_setting = {
             "settings": {
                 "index": {
                     "number_of_shards": "16",
                     "number_of_replicas": "0"
                 },
+                # custom filer and analyzer
                 "analysis": {
                     "filter": {
                         "my_stopwords": {
@@ -38,6 +46,7 @@ class ElasticObj(object):
                     }
                 }
             },
+            # custom mappings
             "mappings": {
                 "properties": {
                     "context": {
@@ -49,6 +58,7 @@ class ElasticObj(object):
                 }
             }
         }
+        # if does exist create a new index
         if not self.es.indices.exists(index=self.index_name):
             new_index = self.es.indices.create(index=self.index_name, body=index_setting)
             print("es.ping(): ", self.es.ping())
@@ -57,14 +67,24 @@ class ElasticObj(object):
             print("this index has already been created!!!")
 
     def delete_index(self):
+        '''
+        delete index
+        '''
         deleted_index = self.es.indices.delete(index=self.index_name)
         print(deleted_index)
 
     def delete_index_data(self, pid):
+        '''
+        delete data with specific id
+        '''
         deleted_index = self.es.delete(index=self.index_name, id=pid)
         print(deleted_index)
 
     def bulk_index_data(self, dataset):
+        '''
+        use bulk to bach indexing
+        :param dataset: list of data need to store in es
+        '''
         ACTIONS = []
         i = 1
         for data in dataset:
@@ -82,6 +102,11 @@ class ElasticObj(object):
         # print(insert_index)
 
     def search(self, info):
+        '''
+        search specific text from es
+        :param info: text for searching
+        :return:
+        '''
         search_body = {
             "query": {
                 "match_phrase": {
