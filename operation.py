@@ -9,6 +9,7 @@ from pdfminer.pdfdocument import PDFDocument, PDFTextExtractionNotAllowed
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LTTextBoxHorizontal, LAParams
+from elasticsearch import Elasticsearch
 import paramiko
 
 importlib.reload(sys)
@@ -130,3 +131,28 @@ def delete_file(file):
     ''''It is used to delete useless files'''
     os.remove(file)
     print("Delete the file successfully!")
+
+
+def es_search(index_name, info, ip='127.0.0.1'):
+    es = Elasticsearch([ip], port=9200)
+    print("es.ping(): ", es.ping())
+    search_body = {
+        "query": {
+            "match_phrase": {
+                "context": {
+                    "query": info,
+                    "slop": 4
+                }
+            }
+        }
+    }
+    result = es.search(index=index_name, body=search_body)
+    # print(result)
+    for hit in result['hits']['hits']:
+        print(hit['_source']['context'])
+
+
+def similarity_checking(file_path):
+    context = get_context(file_path)
+    if context != '':
+        slide_window = context[0:14]

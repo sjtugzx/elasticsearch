@@ -18,4 +18,5 @@ if __name__ == '__main__':
     acm_es.bulk_index_data(dataset)
     print('='*150)
     searching_text = "Optimal Integration of Inter-Task"
-    acm_es.search(searching_text)
+    operation.es_search('acm',searching_text)
+    # acm_es.search(searching_text)
