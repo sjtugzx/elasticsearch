@@ -134,6 +134,9 @@ def delete_file(file):
 
 
 def es_search(index_name, info, ip='127.0.0.1'):
+    '''
+    search function for es
+    '''
     es = Elasticsearch([ip], port=9200)
     print("es.ping(): ", es.ping())
     search_body = {
@@ -147,12 +150,16 @@ def es_search(index_name, info, ip='127.0.0.1'):
         }
     }
     result = es.search(index=index_name, body=search_body)
-    # print(result)
+    similar_text=[]
     for hit in result['hits']['hits']:
         print(hit['_source']['context'])
+        similar_text.append(hit['_source']['context'])
+    return similar_text
 
 
 def similarity_checking(file_path):
     context = get_context(file_path)
-    if context != '':
+    if context == '':
+        print('something wrong with this file!')
+    else:
         slide_window = context[0:14]
