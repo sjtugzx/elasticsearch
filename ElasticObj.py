@@ -3,9 +3,8 @@ from elasticsearch import helpers
 
 
 class ElasticObj(object):
-    def __init__(self, index_name, index_type, ip='127.0.0.1'):
+    def __init__(self, index_name, ip='127.0.0.1'):
         self.index_name = index_name
-        self.index_type = index_type
         self.es = Elasticsearch([ip], port=9200)
 
     def create_index(self):
@@ -34,20 +33,20 @@ class ElasticObj(object):
                         "acm_paper_analyzer": {
                             "type": "custom",
                             "tokenizer": "standard",
-                            "filter": ["lowercase", "my_stopwords","eng_stemmer","eng_stop","asciifolding"]
+                            "filter": ["lowercase", "my_stopwords", "eng_stemmer", "eng_stop", "asciifolding"]
                         }
                     }
                 }
             },
             "mappings": {
                 "properties": {
-                        "context": {
-                            "type": "text",
-                            "index": True,
-                            "analyzer": "acm_paper_analyzer",
-                            "search_analyzer": "acm_paper_analyzer"
-                        }
+                    "context": {
+                        "type": "text",
+                        "index": True,
+                        "analyzer": "acm_paper_analyzer",
+                        "search_analyzer": "acm_paper_analyzer"
                     }
+                }
             }
         }
         if not self.es.indices.exists(index=self.index_name):
@@ -62,7 +61,7 @@ class ElasticObj(object):
         print(deleted_index)
 
     def delete_index_data(self, pid):
-        deleted_index = self.es.delete(index=self.index_name, doc_type=self.index_type, id=pid)
+        deleted_index = self.es.delete(index=self.index_name, id=pid)
         print(deleted_index)
 
     def bulk_index_data(self, dataset):
@@ -71,19 +70,29 @@ class ElasticObj(object):
         for data in dataset:
             action = {
                 "_index": self.index_name,
-                # "_type": self.index_type,
                 "_id": i,  # _id 也可以默认生成，不赋值
                 "_source": {
                     "context": data['context']
                 }
             }
-            i+=1
+            i += 1
             ACTIONS.append(action)
         print(ACTIONS[0])
-        insert_index=helpers.bulk(self.es,ACTIONS)
+        insert_index = helpers.bulk(self.es, ACTIONS)
         # print(insert_index)
 
     def search(self, info):
-        _searched = self.es.search(index=self.index_name, body=info)
-        for hit in _searched['hits']['hits']:
-            print(hit['_source'])
+        search_body = {
+            "query": {
+                "match_phrase": {
+                    "context": {
+                        "query": info,
+                        "slop": 4
+                    }
+                }
+            }
+        }
+        result = self.es.search(index=self.index_name, body=search_body)
+        # print(result)
+        for hit in result['hits']['hits']:
+            print(hit['_source']['context'])

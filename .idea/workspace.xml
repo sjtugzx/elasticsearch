@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ElasticObj.py" beforeDir="false" afterPath="$PROJECT_DIR$/ElasticObj.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_entry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/similarity_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/similarity_check.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +202,7 @@
       <workItem from="1578276643570" duration="1833000" />
       <workItem from="1578281004408" duration="730000" />
       <workItem from="1578282438526" duration="12125000" />
+      <workItem from="1578363946202" duration="1902000" />
     </task>
     <servers />
   </component>
@@ -226,22 +228,22 @@
     </state>
     <state x="507" y="192" key="FileChooserDialogImpl/0.0.1440.900@0.0.1440.900" timestamp="1578126423506" />
     <state x="507" y="200" key="FileChooserDialogImpl/0.23.1440.831@0.23.1440.831" timestamp="1578126232289" />
-    <state width="1219" height="252" key="GridCell.Tab.0.bottom" timestamp="1578313428517">
+    <state width="1235" height="335" key="GridCell.Tab.0.bottom" timestamp="1578366582006">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1219" height="252" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1578313428517" />
-    <state width="1219" height="252" key="GridCell.Tab.0.center" timestamp="1578313428514">
+    <state width="1235" height="335" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1578366582006" />
+    <state width="1235" height="335" key="GridCell.Tab.0.center" timestamp="1578366582005">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1219" height="252" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1578313428514" />
-    <state width="1219" height="252" key="GridCell.Tab.0.left" timestamp="1578313428514">
+    <state width="1235" height="335" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1578366582005" />
+    <state width="1235" height="335" key="GridCell.Tab.0.left" timestamp="1578366582005">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1219" height="252" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1578313428514" />
-    <state width="1219" height="252" key="GridCell.Tab.0.right" timestamp="1578313428515">
+    <state width="1235" height="335" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1578366582005" />
+    <state width="1235" height="335" key="GridCell.Tab.0.right" timestamp="1578366582006">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1219" height="252" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1578313428515" />
+    <state width="1235" height="335" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1578366582006" />
     <state x="221" y="60" key="SettingsEditor" timestamp="1578281422926">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -255,6 +257,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/elasticsearch$es_process.coverage" NAME="search_entry Coverage Results" MODIFIED="1578313428506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$search_entry.coverage" NAME="search_entry Coverage Results" MODIFIED="1578366581996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="masterDetails">
     <states>
