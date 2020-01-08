@@ -145,7 +145,7 @@ def es_search(index_name, info, ip='127.0.0.1'):
             "match_phrase": {
                 "context": {
                     "query": info,
-                    # "slop": 1
+                    # "slop": 0
                 }
             }
         }
@@ -180,7 +180,7 @@ def similarity_checking(index_name, file_path):
         print(len(context))
         # set initial position, window size (14) and duplicated context number
         current_position = 0
-        window_size = 14
+        window_size = 13
         duplicated_context_number = 0
         # sliding window initial
         slide_window = context[current_position:current_position + window_size]
@@ -190,24 +190,25 @@ def similarity_checking(index_name, file_path):
             match_flag = es_search(index_name, context_str)
             if not match_flag:
                 current_position = current_position + 1
-                window_size = 14
+                window_size = 13
                 slide_window = context[current_position:current_position + window_size]
                 continue
             while match_flag:
                 # increase window size by one and update slide_window
                 window_size += 1
-                if current_position + window_size >= len(context):
+                if current_position + window_size > len(context):
                     window_size = len(context)-current_position+1
                     break
                 slide_window = context[current_position:current_position + window_size]
                 context_str = ' '.join(slide_window)
                 match_flag = es_search(index_name, context_str)
-            if window_size>=14:
-                duplicated_context_number += (window_size - 1)
+            if window_size>13:
+                duplicated_context_number += (window_size -1)
+                print("current duplicated words ", duplicated_context_number)
             # print(duplicated_context_number)
             # update slide window
-            current_position = current_position + window_size - 1
-            window_size = 14
+            current_position = current_position + window_size
+            window_size = 13
             slide_window = context[current_position:current_position + window_size]
             print(current_position)
         print("duplicated context number", duplicated_context_number)
