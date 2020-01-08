@@ -21,6 +21,6 @@ if __name__ == '__main__':
     # st1=operation.es_search('acm',searching_text)
     # print(operation.string_similar(searching_text, st1))
     # acm_es.search(searching_text)
-    # operation.similarity_checking('acm', "data/text.txt")
-    operation.similarity_checking('acm', "data/3.txt")
+    operation.similarity_checking('acm', "data/text.txt")
+    # operation.similarity_checking('acm', "data/3.txt")
 
