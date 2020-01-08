@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9342b494-7fc9-4330-9177-61324be247a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ElasticObj.py" beforeDir="false" afterPath="$PROJECT_DIR$/ElasticObj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_entry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/similarity_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/similarity_check.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/elasticsearch$es_process.coverage" NAME="es_process Coverage Results" MODIFIED="1578122091444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$test.coverage" NAME="test Coverage Results" MODIFIED="1578033183248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$extract_info.coverage" NAME="extract_info Coverage Results" MODIFIED="1578053679684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$es.coverage" NAME="es Coverage Results" MODIFIED="1578036774765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1VvGStGdul8gOufw0j9mifjTpV9" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RunManager" selected="Python.search_entry">
+    <configuration name="es" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="elasticsearch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/es_operation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extract_info" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="elasticsearch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/operation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="search_entry" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="elasticsearch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/search_entry.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="elasticsearch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parse_PDF.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.es" />
+      <item itemvalue="Python.extract_info" />
+      <item itemvalue="Python.search_entry" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.search_entry" />
+        <item itemvalue="Python.extract_info" />
+        <item itemvalue="Python.es" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9342b494-7fc9-4330-9177-61324be247a2" name="Default Changelist" comment="" />
+      <created>1577778221218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577778221218</updated>
+      <workItem from="1578126164414" duration="338000" />
+      <workItem from="1578126526446" duration="645000" />
+      <workItem from="1578276643570" duration="1833000" />
+      <workItem from="1578281004408" duration="730000" />
+<<<<<<< HEAD
+      <workItem from="1578282438526" duration="12125000" />
+      <workItem from="1578363946202" duration="1902000" />
+=======
+      <workItem from="1578282438526" duration="13239000" />
+      <workItem from="1578314429283" duration="453000" />
+      <workItem from="1578315065520" duration="3103000" />
+>>>>>>> origin/master
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578310346396">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1578310346396" />
+    <state x="507" y="192" key="FileChooserDialogImpl" timestamp="1578126423506">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="507" y="192" key="FileChooserDialogImpl/0.0.1440.900@0.0.1440.900" timestamp="1578126423506" />
+    <state x="507" y="200" key="FileChooserDialogImpl/0.23.1440.831@0.23.1440.831" timestamp="1578126232289" />
+<<<<<<< HEAD
+    <state width="1235" height="335" key="GridCell.Tab.0.bottom" timestamp="1578366582006">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1235" height="335" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1578366582006" />
+    <state width="1235" height="335" key="GridCell.Tab.0.center" timestamp="1578366582005">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1235" height="335" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1578366582005" />
+    <state width="1235" height="335" key="GridCell.Tab.0.left" timestamp="1578366582005">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1235" height="335" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1578366582005" />
+    <state width="1235" height="335" key="GridCell.Tab.0.right" timestamp="1578366582006">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1235" height="335" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1578366582006" />
+=======
+    <state width="1237" height="322" key="GridCell.Tab.0.bottom" timestamp="1578317806973">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1237" height="322" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1578317806973" />
+    <state width="1237" height="322" key="GridCell.Tab.0.center" timestamp="1578317806972">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1237" height="322" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1578317806972" />
+    <state width="1237" height="322" key="GridCell.Tab.0.left" timestamp="1578317806971">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1237" height="322" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1578317806971" />
+    <state width="1237" height="322" key="GridCell.Tab.0.right" timestamp="1578317806972">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1237" height="322" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1578317806972" />
+>>>>>>> origin/master
+    <state x="221" y="60" key="SettingsEditor" timestamp="1578281422926">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="60" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1578281422926" />
+    <state x="221" y="78" key="SettingsEditor/0.23.1440.831@0.23.1440.831" timestamp="1578126234537" />
+    <state x="397" y="268" key="com.intellij.ide.util.TipDialog" timestamp="1578315066859">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="397" y="268" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1578315066859" />
+    <state x="397" y="271" key="com.intellij.ide.util.TipDialog/0.23.1440.832@0.23.1440.832" timestamp="1578126173647" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
+    <SUITE FILE_PATH="coverage/elasticsearch$es_process.coverage" NAME="search_entry Coverage Results" MODIFIED="1578313428506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$search_entry.coverage" NAME="search_entry Coverage Results" MODIFIED="1578366581996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+=======
+    <SUITE FILE_PATH="coverage/elasticsearch$es_process.coverage" NAME="search_entry Coverage Results" MODIFIED="1578314421548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/elasticsearch$search_entry.coverage" NAME="search_entry Coverage Results" MODIFIED="1578317806963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+>>>>>>> origin/master
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

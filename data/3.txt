@@ -1,0 +1,1983 @@
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION (E-LAB FSBM) 
+
+ 
+
+ 
+
+Y. Khazri 
+
+ 
+
+A. Al Sabri 
+
+ 
+
+B. Sabir 
+
+Physics Department, University  
+
+Physics Department, University  
+
+Physics Department, University  
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+khazri10@gmail.com 
+
+ 
+
+H. Toumi 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+a.alsabri2011@gmail.com 
+
+ 
+
+M. Moussetad 
+
+Hassan II – Casablanca 
+
+Morocco 
+
+brahimsabir95@gmail.com 
+
+ 
+
+Ahmed Fahli 
+
+Physics Department, University  
+
+Physics Department, University  
+
+Physics Department, Hassan I University - 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+toumi.doc@gmail.com 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+m.moussetad@gmail.com 
+
+ 
+
+Settat,  
+
+Morocco  
+
+fahli@uhp.ac.ma 
+
+ 
+
+ABSTRACT 
+
+Computer  networks  associated  to  more  and  more  interactive 
+applications, and mobile interfaces can favor innovative use in the 
+field of the scientific and technical practical training. Alternatives 
+in the training in traditional such as the remote laboratories can be 
+a contribution to solve the problem of the growing numbers of the 
+students.  The  Remote 
+laboratories  are  flexible,  distributed 
+environments which enable a learner to perform real experiments 
+via  the  web.  Of  such  facilities  provide  a  practical  education  to 
+growing  numbers  of  students,  despite  the  material  resources  and 
+supervision  often  limited.  They  can  also  enable  the  sharing  of 
+manipulations between several academic institutions nationally or 
+internationally, and to enjoy the various partner’s costly resources 
+which they would not have access. In a context of strong demand 
+of  the  South  countries  for  training  in  the  domain  of  technicians 
+and  engineers,  our  project  (rESeau  maghrébIn  de  laboratoirEs  à 
+distaNCE,  eSience),  provide  a  response  in  the  Engineering  field. 
+In this work, the main objective was to build an interactive system 
+to control and manipulate a distance experiences in physics at any 
+time with any browser in real-time using a client interface. 
+
+KEYWORDS 
+eSience,  Remote  laboratories,  Engineering  Education,  Internet,   
+National Instruments, LabVIEW. 
+
+Permission  to  make  digital  or  hard  copies  of  all  or  part  of  this  work  for 
+personal or classroom use is granted without fee provided that copies are 
+not made or distributed for profit or commercial advantage and that copies 
+bear  this  notice  and  the  full  citation  on  the  first  page.  Copyrights  for 
+components  of  this  work  owned  by  others  than  ACM  must  be  honored. 
+Abstracting  with  credit  is  permitted.  To  copy  otherwise,  or  republish,  to 
+post on servers or to redistribute to lists, requires prior specific permission 
+and/or a fee. Request permissions from Permissions@acm.org.  
+
+BDCA'17, March 29-30, 2017, Tetouan, Morocco  
+© 2017 Association for Computing Machinery. 
+ACM ISBN 978-1-4503-4852-2/17/03…$15.00  
+http://dx.doi.org/10.1145/3090354.3090460 
+
+1  INTRODUCTION 
+
+is  an 
+
+theoretical  courses,  students  come 
+
+to 
+to 
+to  conduct  experiments  and  appreciate 
+
+The  traditional  teaching  methods  for  students  at  schools  and 
+universities  are  obsolete  and  not  effective  enough.  The  students 
+often expect higher level teaching methods in the field of physics, 
+biology,  chemistry  and  electro-engineering,  which  can help  them 
+to perceive real world phenomena in a better way [1]. 
+important 
+In  engineering  education,  practical  work 
+the 
+complement 
+the 
+laboratories 
+discrepancies  between 
+their  observations  and  predictions 
+according  to  the  theoretical  courses.    However,  due  to  several 
+limiting  factors  in  traditional  laboratory  experiments,  students 
+cannot  get  the  necessary  experiences.  Remote  laboratories  for 
+instruments control are an important tool for teaching students in 
+physics  and  of  control  systems  engineering  and  experimentation 
+with a wide range of feedback devices [2]. 
+Remote laboratories refer to a distributed computing environment 
+used  as  a distance  education platform.  It  is  flexible,  allowing  the 
+student  to  perform  experiments  through  interactions  with  real 
+devices and, real instruments, via remotely operated mechanisms. 
+This  type  of  educational  experience  is  essential  in  scientific  and 
+technical 
+these 
+experiences  to  students  remotely  meets  real  needs  of  both  the 
+students and the universities [14].  
+The  development  of  remote  laboratories  is  a  promising  direction 
+for  the  future  of  engineering  education  because  they  provide 
+means for students to design and conduct experiments without the 
+need for physical laboratories equipment on site. 
+Internet technologies and software applications (such as National 
+Instrument’s  LabVIEW,  which  is  considered  as  the  leading 
+professional  software  for  analysis,  data  acquisition,  real-time 
+control and remote laboratories) have had an enormous impact on 
+engineering education [3].  
+
+training.  Moreover,  being  able 
+
+to  provide 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+With  remote  laboratories,  the  interactions  between  the  students 
+and  the  reel  instruments  are  facilitated  by  an  appropriate 
+communications  platform  which  is  equipped  with  a  system 
+dedicated  to  the  management  of  a  number  of  software  and 
+hardware  interfaces  [4].  Remote  laboratories  allow  a  practical 
+education  to  growing  numbers  of  students,  despite  the  material 
+resources and often limited supervision [15]. They can also enable 
+the  sharing  of  handling  between  several  academic  institutions 
+nationally  or  internationally,  and  to  enjoy  the  various  partner’s 
+costly resources which they would not have access. 
+
+2  E-SIENCE PROJECT 
+
+In a context of strong demand of the South countries for training 
+in  the  domain  of  technicians  and  engineers,  our  project  (rESeau 
+maghrébIn  de  laboratoirEs  à  distaNCE,  eSience)  provide  a 
+response in the Engineering field. 
+Following the saying "I hear and I forget - I see and I remember. - 
+I  do  and  I  understand"  the  project  will  build  on  the  eLearning 
+complements 
+integrating  practical  work 
+remotely, and will train a large number of students. 
+
+traditional  by 
+
+the 
+
+Y. KHAZRI et Al. 
+
+3.1.1.  Architecture 
+
+ELAB  FSBM  is  the  remote  laboratories  in  physics,  which  we 
+developed in the Faculty of Sciences Ben M'sik in Casablanca. 
+The  Remote  laboratories  are  flexible,  distributed  environments, 
+which  enable  a  learner  to  perform  real  experiments  via  the  web. 
+The  learner  carries  out  the  experiment  and  takes  measurements 
+online,  but  he  or  she  can  recover  the  real,  rather  than  simulated, 
+experimental  results  in  order  to  utilize  them.  Each  participant 
+plays  a  role  during  his  or  her  interactions  with  other  laboratories 
+participants,  allowing  all  participants  to  share  in  hardware 
+resources and in one another’s expertise [7]. A remote laboratory 
+can be built according to the   following diagram (Fig. 2): 
+
+Figure 2: The architecture of the remote laboratories 
+
+ 
+
+ 
+
+Figure 1: e-Sience community 
+
+ 
+The  e-Sience  project,  coordinated  by  the  University  Bordeaux 
+associate  16  academic  and  industrial  partners  of  North  Africans 
+countries  (Morocco,  Tunisia,  Algeria)  and  Europeans  (France, 
+Greece, Austria and Romania). 
+ This  network  of  remote  laboratories  has  the  objective  of 
+modernization  of  higher  education  in  science  and  technology 
+should fit characteristics like:  
+•  Adaptation  of  content  to  the  development  in  science  and 
+technology,  taking  into        account  the  expectations  of  the 
+professional world; 
+• Implementation of practical courses for on distance education; 
+• Creating teaching units in the eLearning format; 
+• Setting up and using an LMS (Learning Management System);  
+• Evaluation of the newly created educational resources;  
+• Use of the pedagogical resources [5, 6]. 
+
+3 
+
+ REMOTE LABORATORIES IN PHYSICS 
+
+(E-LAB FSBM) 
+
+2 
+ 
+
+ 
+The  Interactive  Lab  Server  is  the  component  that  is  connected 
+directly  to  the  lab  equipment  and  deals  with  the  actual  operation 
+of  the  experiment  hardware.  It  is  the  administrative  interface  of 
+the lab equipment and enables laboratory administrators to set up 
+and  configure  each  experiment  independently  [16,  18,  19].  The 
+Interactive  Service  Broker  is  the  heart  of  the  ISA.  It  provides 
+generic 
+authentication, 
+authorization, user management,  and scheduling and data storage 
+[8]. 
+
+administrative 
+
+services, 
+
+such 
+
+as 
+
+Figure 3: Communication User-Instrument 
+
+ 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION 
+
+the 
+
+remotely  with 
+
+to  communicate 
+
+instrument.  The  response  of 
+
+ 
+Remote  access  to  the  instrumentation  can  then  be  performed  in 
+three different ways. 
+      The  first  one  takes  place  directly  from  the  control  PC.  The 
+control  can  be  local  via  a  General  Purpose  Interface  Bus  (GPIB) 
+bus,  and  interfaced  to  the  PC  via  a  PCI  expansion  card.  The 
+distance  being  then  limited  by  the  maximum  length  of  the  GPIB 
+connection  this  is  of  the  order  of  magnitude  of  the  tens  of 
+metersThe  control  can  be  remotely  connected  via  the  LAN  to  a 
+LAN-GPIB  interface  box.  GPIB  requests  are  encapsulated  in  the 
+Ethernet  frames  and  then  delivered  to  the  interface  box  that 
+communicates  with 
+the 
+instrument to these requests follows the opposite path. The control 
+PC  must  have  the  software  drivers  required  for  communication 
+with the PCI card or the LAN-GPIB enclosure and the LabVIEW 
+application used for the design of virtual instruments. 
+the 
+    The  second  way 
+instrumentation  is  to  use  a  PC  where  only  the  LabVIEW 
+application  is  installed,  excluding  any  specific  driver.  LabVIEW 
+integrates  natively  all  the  software  components  that  allow  you  to 
+connect  through  the  LAN  to  a  virtual  instrument  loaded  into  the 
+RAM  of  the  control  PC.  Communication  is  established  through 
+the network with the "Connect to remote panel" function. All the 
+functions of the virtual instrument loaded into the memory of the 
+control  machine  are  accessible.  Communication  with 
+the 
+measuring  instruments  is  entrusted  to  the  control  PC.  No  special 
+software drivers are required. 
+    The  third  way  to  communicate  does  not  require  a  physical 
+connection with the instrumentation or the installation of specific 
+drivers  like  the  machine  control,  or  the  LabVIEW  application  as 
+outlined in the previous case, but a standard web browser, such as 
+Internet  Explorer  or  Mozilla,  associated  with  a  "plug-in" 
+available.  The  installation  of  the  latter,  however,  requires 
+administrative rights for Windows 2000 or XP machine type. For 
+Internet  Explorer,  this  is  LVActiveXControl.dll.  As  for  Mozilla, 
+the  plugin  is  denominated  NPLVWin32.dll.  Both  must  be  in  the 
+subdirectory  "Plugins"  of  the  respective  installation  directories 
+browsers.  They  are  available  as  a  software  package  called 
+"LabVIEW  Run-Time  Engine"  and  available  on  the  platforms 
+Macintosh,  Windows  and  Linux,  which  ensures  universality  for 
+remote access [9-11, 17]. 
+LabVIEW installed on the PC control, has its own Web server on 
+which  one  can  come 
+the  remote  PC, 
+conventionally with a standard web browser. The functions “web 
+server”  and  “lab  server”  are  hosted  on  the  same  machine.  GPIB 
+requests  are  encapsulated  in  the  HTTP  protocol,  sent  to  the 
+control PC, decoded and transmitted to the virtual instrument. The 
+measuring  device  response  to  these  requests  follows  the  reverse 
+path.  The  front  of  the  instrument  is  loaded  only  once,  at  the 
+opening  of  the  corresponding  web  page.  Then,  only  the  requests 
+and  the  corresponding  responses  are  transported  on  the  network, 
+which limits the traffic to the strict minimum. 
+In  this  work,  we  present  the  different  experiences  that  we  have 
+(laboratory  of 
+developed  within  our 
+
+laboratory  LIMAT 
+
+to  connect  from 
+
+ 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+
+engineering  and  materials)  in  Faculty  of  Sciences  Ben  M'sik  of 
+Casablanca, so that they can be accessed remotely. 
+
+3.2  RC-Circuit  
+
+3.2.1  Description of the experience 
+
+In  this  experiment,  we  will  study  charging  a  capacitor  by 
+connecting it to an emf source through a resistor. The experiment 
+also  includes  the  study  of  discharging  phenomena  of  a  capacitor 
+through a resistor [12, 13]. 
+
+Figure 4: RC Circuit 
+
+ 
+
+Objectives: 
+
+•  To  study  charging  and  discharging  process  through 
+
+capacitors. 
+
+•  To determine the time constant τ of an RC-circuit. 
+
+In this work, the main objective was to build an interactive system 
+to  determine  the  synchronous  reactance  at  any  time  with  any 
+browser  in  real-time  using  a  client  interface  implemented  using 
+National  Instrument’s  LabVIEW  and  deployed  as  an  interactive 
+lab. 
+
+3.2.2  Hardware Part 
+
+The  hardware  part  of  our  remote  experience  (Fig  6)  contains  a 
+Sensor  CASSY,  resistances,  capacitors,  Lab  Server,  and  IP 
+Webcam. 
+The LabVIEW software and the entire modules are installed in the 
+Host  Computer  (E-LAB  FSBM  Lab  Server)  that  controls  the 
+whole  system.    The  host  computer  communicates  synchronously 
+with  the  chassis  over  a  TCP/IP  connection,  a  real-time  controller 
+implements the major complicated algorithms. 
+
+Figure 5: Schema of experience 
+
+ 
+
+3 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+
+Y. KHAZRI et Al. 
+
+Figure 6: Mounting experience 
+
+ 
+The  real-time  controller  consists of  an  industrial PC  that  reliably 
+and  deterministically  executes  LabVIEW  real-time  applications 
+and  offers  multi-rate  control,  execution  tracing,  onboard  data 
+logging, and communication with peripherals [10]. It receives the 
+data  from  the  Sensor  CASSY,  executes  the  control  algorithms, 
+and  sends  the  data  to  the  in  real-time.  And  an  IP  Webcam  was 
+used to provide real-time viewing experience. The Lab server and 
+the  IP  Webcam  were  connected  to  the  Internet  through  a  router 
+switch. 
+
+3.2.3 
+
+Software part 
+
+The  software  was  hosted  on  the  web  server  application  using 
+LabVIEW.  It  provides  communication  through  TCP\IP  sockets 
+with  clients.  The  user  received  commands  and  parameters 
+necessary  for  measurement  readings  and  transmuted  the  results. 
+Through another module, it communicated with the capture card. 
+The  user  interface  allowed  control  and  monitoring  of  client 
+connections.  
+Client side, the server application, provided the anticipated result 
+of  the  experiment.  It  was  documented  in  the  form  of  a  user’s 
+manual and it provided both theoretical background and guidance.  
+ 
+
+3.3  Velocity of Sound in Air 
+
+3.3.1  Description of the experience 
+
+The purpose of the experiment is to determine the velocity of 
+sound  in  air  by  measuring  the  time  delay  between  an  ultrasound 
+transmitter  and  a  receiver  placed  successively  at  different 
+distances as shown in Figure 7. 
+
+4 
+ 
+
+Figure 7: Equipment of the experience 
+
+ 
+
+3.3.2  Hardware Part 
+
+To  adapt  the  experiment  so  that  it  can  be  handled  remotely,  we 
+needed  to  make  changes  to  the hardware.  First,  the transmitter  is 
+kept in a fixed position and the receptor was used a stepper motor 
+to vary the distance between the transmitter and the receiver of 13 
+cm to 47 cm.  
+For  measurement  and  control  operations,  we  used  a  data 
+acquisition card based microcontroller family of  microcontrollers 
+(PIC16F876). The latter, controlled by 20 MHz quartz, produced a 
+time  base  for  the  measurement  intervals  and  provided  the 
+counting operation, it also provided control of the stepping motor 
+through a power interface. The card also facilitated asynchronous 
+serial  communications  with  the  server  in  order  to  receive  and 
+transmit measurements of parameters for the results (Figure 8). 
+ 
+
+Figure 8: Control card 
+
+In  addition  to  this  card,  an  IP  camera  was  used  to  provide  real-
+time  viewing  experience.  The  server  and  the  camera  were 
+connected to the Internet through a router switch. 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION 
+
+ 
+3.3.3 
+
+Software part 
+
+The software  was hosted on the web server application. The web 
+server  application  was  developed  using  LabVIEW.  It  provided 
+communication through TCP\IP sockets with clients.   
+The  user  received  commands  and  parameters  necessary  for 
+measurement  readings  and  transmuted  the  results.  Through 
+another module, it communicated with the capture card. The user 
+interface allowed control and monitoring of client connections. 
+Client side, the server application, provided the anticipated result 
+of  the  experiment.  It  was  documented  in  the  form  of  a  user’s 
+manual and it provided both theoretical background and guidance. 
+It  was  delivered  through  HTML  pages  in  Internet  Explorer, 
+Mozilla  Firefox,  For  accuracy  of  the  movement  of  receptor,  the 
+motor moves at a pitch of 7, 5 cm. 
+
+ 
+
+Figure 9: Client Interface 
+
+ 
+
+For  manipulation  of  the  experience,  students  can  first  choose  a 
+position  of  the  receiver  and  click  ok,  automatically  the  receiver 
+will  move  to  the  indicated  position,  and  the  result  will  be 
+displayed  on  the  graph  next  to  it.  After  they  determine  the  time 
+between  the  transmitter  and  receiver  signal  to  calculate  the 
+velocity of sound. 
+For example: 
+We chose the position 2 which means that d = 30 cm  
+And from the graph (Figure 10), T = 0.0009 s 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+
+ 
+
+Figure 10: graph of time 
+
+So V= d/t 
+        = 0,31/0,0009 
+        = 344,44 m/s 
+ 
+The  students  browse  the  service  broker  to  register  and  request 
+membership to the group associated with the laboratory. 
+This  procedure  allows  permission  and  access  to  the  booking 
+system,  and  then  they  choose  the  available  lab  experiment  to 
+launch it. 
+
+4.  CONCLUSION  
+
+The  main  objective  of  this  project  was  to  create  an  effective 
+remote laboratory network in the Maghreb region. 
+This  work  presented  the  LabVIEW-based  realization  of  a  remote 
+laboratories  dedicated  to  students  in  distance  e-sience  group  to 
+enable  them  to  manipulate  and  control  in  real  time  the  deferent 
+experiences. 
+The  feasibility  of  accessing  a  remote  laboratory  from  a  simple 
+Internet  browser  has  been  demonstrated.  This  concept 
+is 
+particularly  interesting  for  several  reasons  since  it  allows: 
+eliminating 
+through  affording 
+flexibility,  affording  the  opportunity  for  conducting  an  online 
+experiment  with  real  equipment  anytime  and  anywhere,  and  the 
+sharing  of  scarce  and  expensive  resources  between  laboratories 
+and educational institutions. 
+
+time  and  space  constraints 
+
+REFERENCES 
+ 
+[1]  M.  Gerza,  and  F.  Schauer,  ”Intelligent  Processing  of  Experimental  Data  in 
+
+ISES Remote Laboratory” iJOE ‒Volume 12, Issue 3,  2016. 
+
+[2]  S.  Gadzhanov,  A.    Nafalski,  and  Z.  Nedic, “Remote  Laboratory  for  Advanced 
+Motion  Control  Experiments”,  World  Transactions  on  Engineering  and 
+Technology Education, Vol.11, No.4, 2013. 
+
+[3]  K.    Butler-Purry  and  H.    Chou,  2011.  Real-Time  Rapid  Embedded  Power 
+System Control Prototyping Simulation Test-Bed Using LabVIEW and RTDS, 
+Practical  Applications  and  Solutions  Using  LabVIEW™  Software,  Dr.  Silviu 
+Folea (Ed.), ISBN: 978-953-307-650-8, InTech.  
+
+[4]  Y.  Khazri,  M.  Rouane,  A.    Fahli,  M.  Moussetad,  A.    Khaldouni,  and  A.  
+Naddami,  “Developing  a  Remote  Practice  for  Laboratory  Experiments  on 
+Measuring Instruments”, iJOE - Vol 10, No 5 (2014). 
+
+[5]  http://www.esience.org/ 
+[6]  Y.  Khazri,  A.  Fahli,  and  M.  Moussetad,”  Implementing  a  Remote  Experience 
+for  Engineering  Education”  IEEE,  Proceedings  of  2015  International 
+
+ 
+
+5 
+
+Y. KHAZRI et Al. 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+
+Conference  on  Interactive  Collaborative  Learning  (ICL),  20-24  September 
+2015, Florence, Italy. 
+
+[7]  M. Tawfik, E. Sancristobal, S. Martin, R. Gil, G. Diaz, J. Peire, and M.  Castro, 
+“on the design of remote laboratories”, IEEE, international conference educon, 
+Marrakesh, Morocco 17-20 April 2012. 
+
+[8]  B.  Nasri,  R.  Ennetta,  and  S.    Bouallègue,  Mechanical  Remote  Laboratory 
+
+Development using iLab Shared Architecture, iJOE -Vol 11, No 5 (2015). 
+
+[9]  M.  Teng,  H.  Considine,  Z.  Nedic,  and  A.  Nafalski,  « Current  and  Future 
+Developments  in  Remote  Laboratory  NetLab »,  Int.  J.  Online  Eng.  IJOE,  vol. 
+12, no 08, p. 4, août 2016. 
+
+[10]  National 
+
+Instruments,  “Distance-Learning  Remote  Laboratories  using 
+
+LabVIEW”. 
+
+[11]  Ahmed  Naddami,  Ahmed  Fahli,  Mourad  Gourmaj,  Andreas  Pester,  Ramona 
+Oros,” Importance of a Network of Online Labs in Magrebian Countries”, iJOE 
+‒Volume 10, Issue 5, 2014. 
+
+[12]  http://www.ni.com/ 
+[13]  P.Sládeka,  L.  Paweraa,  “Remote  laboratory  –  new  possibility  for  school   
+
+experiments,” ICEEPSY Procedia Social and Behavioral Sciences: Brno, Czech 
+Republic, 12 Déc 2011, pp.164–167 
+
+[14]  R. Heradio, L. de la Torre, and S. Dormido, « Virtual and remote labs in control 
+
+education: A survey », Annu. Rev. Control, vol. 42, p. 1‑10, 2016. 
+
+[15]  I.  Gustavsson  and  al.,  « On  objectives  of  instructional  laboratories,  individual 
+assessment, and use of collaborative remote laboratories », IEEE Trans. Learn. 
+Technol., vol. 2, no 4, p. 263‑274, 2009. 
+
+[16]  L.  F.  Zapata  Rivera  and  M.  M.  Larrondo  Petrie,  « Models  of  Collaborative 
+Remote  Laboratories  and  Integration  with  Learning  Environments »,  Int.  J. 
+Online Eng. IJOE, vol. 12, no 09, p. 14, sept. 2016. 
+
+[17]  M.  Teng,  H.  Considine,  Z.  Nedic,  and  A.  Nafalski,  « Current  and  Future 
+Developments  in  Remote  Laboratory  NetLab »,  Int.  J.  Online  Eng.  IJOE,  vol. 
+12, no 08, p. 4, août 2016. 
+
+[18]  Z. Lei, W.  Hu, H. Zhou, L. Zhong and X.  Gao, A DC Motor Position Control 
+System in a 3D Real-Time Virtual Laboratory Environment Based on NCSLab 
+3D, iJOE ‒ Volume 11, Issue 3, 2015, 
+http://dx.doi.org/10.3991/ijoe.v11i3.4556 
+
+[19]  T. Richter, R. Watson, S. Kassavetis, M. Kraft, P. Grube, D. Boehringer, P. De 
+Vries, E. Hatzikraniotis, and S.  Logothetidis,  "The WebLabs of  the University 
+of  Cambridge:  A  study  of  securing  remote  instrumentation,"  in  Remote 
+Engineering  and  Virtual  Instrumentation  (REV),  2012  9th  International 
+Conference on, 2012, pp. 1-5. http://dx.doi.org/10.1109/rev.2012.6293099 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+6 
+ 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION (E-LAB FSBM) 
+
+ 
+
+ 
+
+Y. Khazri 
+
+ 
+
+A. Al Sabri 
+
+ 
+
+B. Sabir 
+
+Physics Department, University  
+
+Physics Department, University  
+
+Physics Department, University  
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+khazri10@gmail.com 
+
+ 
+
+H. Toumi 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+a.alsabri2011@gmail.com 
+
+ 
+
+M. Moussetad 
+
+Hassan II – Casablanca 
+
+Morocco 
+
+brahimsabir95@gmail.com 
+
+ 
+
+Ahmed Fahli 
+
+Physics Department, University  
+
+Physics Department, University  
+
+Physics Department, Hassan I University - 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+toumi.doc@gmail.com 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+m.moussetad@gmail.com 
+
+ 
+
+Settat,  
+
+Morocco  
+
+fahli@uhp.ac.ma 
+
+ 
+
+ABSTRACT 
+
+Computer  networks  associated  to  more  and  more  interactive 
+applications, and mobile interfaces can favor innovative use in the 
+field of the scientific and technical practical training. Alternatives 
+in the training in traditional such as the remote laboratories can be 
+a contribution to solve the problem of the growing numbers of the 
+students.  The  Remote 
+laboratories  are  flexible,  distributed 
+environments which enable a learner to perform real experiments 
+via  the  web.  Of  such  facilities  provide  a  practical  education  to 
+growing  numbers  of  students,  despite  the  material  resources  and 
+supervision  often  limited.  They  can  also  enable  the  sharing  of 
+manipulations between several academic institutions nationally or 
+internationally, and to enjoy the various partner’s costly resources 
+which they would not have access. In a context of strong demand 
+of  the  South  countries  for  training  in  the  domain  of  technicians 
+and  engineers,  our  project  (rESeau  maghrébIn  de  laboratoirEs  à 
+distaNCE,  eSience),  provide  a  response  in  the  Engineering  field. 
+In this work, the main objective was to build an interactive system 
+to control and manipulate a distance experiences in physics at any 
+time with any browser in real-time using a client interface. 
+
+KEYWORDS 
+eSience,  Remote  laboratories,  Engineering  Education,  Internet,   
+National Instruments, LabVIEW. 
+
+Permission  to  make  digital  or  hard  copies  of  all  or  part  of  this  work  for 
+personal or classroom use is granted without fee provided that copies are 
+not made or distributed for profit or commercial advantage and that copies 
+bear  this  notice  and  the  full  citation  on  the  first  page.  Copyrights  for 
+components  of  this  work  owned  by  others  than  ACM  must  be  honored. 
+Abstracting  with  credit  is  permitted.  To  copy  otherwise,  or  republish,  to 
+post on servers or to redistribute to lists, requires prior specific permission 
+and/or a fee. Request permissions from Permissions@acm.org.  
+
+BDCA'17, March 29-30, 2017, Tetouan, Morocco  
+© 2017 Association for Computing Machinery. 
+ACM ISBN 978-1-4503-4852-2/17/03…$15.00  
+http://dx.doi.org/10.1145/3090354.3090460 
+
+1  INTRODUCTION 
+
+is  an 
+
+theoretical  courses,  students  come 
+
+to 
+to 
+to  conduct  experiments  and  appreciate 
+
+The  traditional  teaching  methods  for  students  at  schools  and 
+universities  are  obsolete  and  not  effective  enough.  The  students 
+often expect higher level teaching methods in the field of physics, 
+biology,  chemistry  and  electro-engineering,  which  can help  them 
+to perceive real world phenomena in a better way [1]. 
+important 
+In  engineering  education,  practical  work 
+the 
+complement 
+the 
+laboratories 
+discrepancies  between 
+their  observations  and  predictions 
+according  to  the  theoretical  courses.    However,  due  to  several 
+limiting  factors  in  traditional  laboratory  experiments,  students 
+cannot  get  the  necessary  experiences.  Remote  laboratories  for 
+instruments control are an important tool for teaching students in 
+physics  and  of  control  systems  engineering  and  experimentation 
+with a wide range of feedback devices [2]. 
+Remote laboratories refer to a distributed computing environment 
+used  as  a distance  education platform.  It  is  flexible,  allowing  the 
+student  to  perform  experiments  through  interactions  with  real 
+devices and, real instruments, via remotely operated mechanisms. 
+This  type  of  educational  experience  is  essential  in  scientific  and 
+technical 
+these 
+experiences  to  students  remotely  meets  real  needs  of  both  the 
+students and the universities [14].  
+The  development  of  remote  laboratories  is  a  promising  direction 
+for  the  future  of  engineering  education  because  they  provide 
+means for students to design and conduct experiments without the 
+need for physical laboratories equipment on site. 
+Internet technologies and software applications (such as National 
+Instrument’s  LabVIEW,  which  is  considered  as  the  leading 
+professional  software  for  analysis,  data  acquisition,  real-time 
+control and remote laboratories) have had an enormous impact on 
+engineering education [3].  
+
+training.  Moreover,  being  able 
+
+to  provide 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+With  remote  laboratories,  the  interactions  between  the  students 
+and  the  reel  instruments  are  facilitated  by  an  appropriate 
+communications  platform  which  is  equipped  with  a  system 
+dedicated  to  the  management  of  a  number  of  software  and 
+hardware  interfaces  [4].  Remote  laboratories  allow  a  practical 
+education  to  growing  numbers  of  students,  despite  the  material 
+resources and often limited supervision [15]. They can also enable 
+the  sharing  of  handling  between  several  academic  institutions 
+nationally  or  internationally,  and  to  enjoy  the  various  partner’s 
+costly resources which they would not have access. 
+
+2  E-SIENCE PROJECT 
+
+In a context of strong demand of the South countries for training 
+in  the  domain  of  technicians  and  engineers,  our  project  (rESeau 
+maghrébIn  de  laboratoirEs  à  distaNCE,  eSience)  provide  a 
+response in the Engineering field. 
+Following the saying "I hear and I forget - I see and I remember. - 
+I  do  and  I  understand"  the  project  will  build  on  the  eLearning 
+complements 
+integrating  practical  work 
+remotely, and will train a large number of students. 
+
+traditional  by 
+
+the 
+
+Y. KHAZRI et Al. 
+
+3.1.1.  Architecture 
+
+ELAB  FSBM  is  the  remote  laboratories  in  physics,  which  we 
+developed in the Faculty of Sciences Ben M'sik in Casablanca. 
+The  Remote  laboratories  are  flexible,  distributed  environments, 
+which  enable  a  learner  to  perform  real  experiments  via  the  web. 
+The  learner  carries  out  the  experiment  and  takes  measurements 
+online,  but  he  or  she  can  recover  the  real,  rather  than  simulated, 
+experimental  results  in  order  to  utilize  them.  Each  participant 
+plays  a  role  during  his  or  her  interactions  with  other  laboratories 
+participants,  allowing  all  participants  to  share  in  hardware 
+resources and in one another’s expertise [7]. A remote laboratory 
+can be built according to the   following diagram (Fig. 2): 
+
+Figure 2: The architecture of the remote laboratories 
+
+ 
+
+ 
+
+Figure 1: e-Sience community 
+
+ 
+The  e-Sience  project,  coordinated  by  the  University  Bordeaux 
+associate  16  academic  and  industrial  partners  of  North  Africans 
+countries  (Morocco,  Tunisia,  Algeria)  and  Europeans  (France, 
+Greece, Austria and Romania). 
+ This  network  of  remote  laboratories  has  the  objective  of 
+modernization  of  higher  education  in  science  and  technology 
+should fit characteristics like:  
+•  Adaptation  of  content  to  the  development  in  science  and 
+technology,  taking  into        account  the  expectations  of  the 
+professional world; 
+• Implementation of practical courses for on distance education; 
+• Creating teaching units in the eLearning format; 
+• Setting up and using an LMS (Learning Management System);  
+• Evaluation of the newly created educational resources;  
+• Use of the pedagogical resources [5, 6]. 
+
+3 
+
+ REMOTE LABORATORIES IN PHYSICS 
+
+(E-LAB FSBM) 
+
+2 
+ 
+
+ 
+The  Interactive  Lab  Server  is  the  component  that  is  connected 
+directly  to  the  lab  equipment  and  deals  with  the  actual  operation 
+of  the  experiment  hardware.  It  is  the  administrative  interface  of 
+the lab equipment and enables laboratory administrators to set up 
+and  configure  each  experiment  independently  [16,  18,  19].  The 
+Interactive  Service  Broker  is  the  heart  of  the  ISA.  It  provides 
+generic 
+authentication, 
+authorization, user management,  and scheduling and data storage 
+[8]. 
+
+administrative 
+
+services, 
+
+such 
+
+as 
+
+Figure 3: Communication User-Instrument 
+
+ 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION 
+
+the 
+
+remotely  with 
+
+to  communicate 
+
+instrument.  The  response  of 
+
+ 
+Remote  access  to  the  instrumentation  can  then  be  performed  in 
+three different ways. 
+      The  first  one  takes  place  directly  from  the  control  PC.  The 
+control  can  be  local  via  a  General  Purpose  Interface  Bus  (GPIB) 
+bus,  and  interfaced  to  the  PC  via  a  PCI  expansion  card.  The 
+distance  being  then  limited  by  the  maximum  length  of  the  GPIB 
+connection  this  is  of  the  order  of  magnitude  of  the  tens  of 
+metersThe  control  can  be  remotely  connected  via  the  LAN  to  a 
+LAN-GPIB  interface  box.  GPIB  requests  are  encapsulated  in  the 
+Ethernet  frames  and  then  delivered  to  the  interface  box  that 
+communicates  with 
+the 
+instrument to these requests follows the opposite path. The control 
+PC  must  have  the  software  drivers  required  for  communication 
+with the PCI card or the LAN-GPIB enclosure and the LabVIEW 
+application used for the design of virtual instruments. 
+the 
+    The  second  way 
+instrumentation  is  to  use  a  PC  where  only  the  LabVIEW 
+application  is  installed,  excluding  any  specific  driver.  LabVIEW 
+integrates  natively  all  the  software  components  that  allow  you  to 
+connect  through  the  LAN  to  a  virtual  instrument  loaded  into  the 
+RAM  of  the  control  PC.  Communication  is  established  through 
+the network with the "Connect to remote panel" function. All the 
+functions of the virtual instrument loaded into the memory of the 
+control  machine  are  accessible.  Communication  with 
+the 
+measuring  instruments  is  entrusted  to  the  control  PC.  No  special 
+software drivers are required. 
+    The  third  way  to  communicate  does  not  require  a  physical 
+connection with the instrumentation or the installation of specific 
+drivers  like  the  machine  control,  or  the  LabVIEW  application  as 
+outlined in the previous case, but a standard web browser, such as 
+Internet  Explorer  or  Mozilla,  associated  with  a  "plug-in" 
+available.  The  installation  of  the  latter,  however,  requires 
+administrative rights for Windows 2000 or XP machine type. For 
+Internet  Explorer,  this  is  LVActiveXControl.dll.  As  for  Mozilla, 
+the  plugin  is  denominated  NPLVWin32.dll.  Both  must  be  in  the 
+subdirectory  "Plugins"  of  the  respective  installation  directories 
+browsers.  They  are  available  as  a  software  package  called 
+"LabVIEW  Run-Time  Engine"  and  available  on  the  platforms 
+Macintosh,  Windows  and  Linux,  which  ensures  universality  for 
+remote access [9-11, 17]. 
+LabVIEW installed on the PC control, has its own Web server on 
+which  one  can  come 
+the  remote  PC, 
+conventionally with a standard web browser. The functions “web 
+server”  and  “lab  server”  are  hosted  on  the  same  machine.  GPIB 
+requests  are  encapsulated  in  the  HTTP  protocol,  sent  to  the 
+control PC, decoded and transmitted to the virtual instrument. The 
+measuring  device  response  to  these  requests  follows  the  reverse 
+path.  The  front  of  the  instrument  is  loaded  only  once,  at  the 
+opening  of  the  corresponding  web  page.  Then,  only  the  requests 
+and  the  corresponding  responses  are  transported  on  the  network, 
+which limits the traffic to the strict minimum. 
+In  this  work,  we  present  the  different  experiences  that  we  have 
+(laboratory  of 
+developed  within  our 
+
+laboratory  LIMAT 
+
+to  connect  from 
+
+ 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+
+engineering  and  materials)  in  Faculty  of  Sciences  Ben  M'sik  of 
+Casablanca, so that they can be accessed remotely. 
+
+3.2  RC-Circuit  
+
+3.2.1  Description of the experience 
+
+In  this  experiment,  we  will  study  charging  a  capacitor  by 
+connecting it to an emf source through a resistor. The experiment 
+also  includes  the  study  of  discharging  phenomena  of  a  capacitor 
+through a resistor [12, 13]. 
+
+Figure 4: RC Circuit 
+
+ 
+
+Objectives: 
+
+•  To  study  charging  and  discharging  process  through 
+
+capacitors. 
+
+•  To determine the time constant τ of an RC-circuit. 
+
+In this work, the main objective was to build an interactive system 
+to  determine  the  synchronous  reactance  at  any  time  with  any 
+browser  in  real-time  using  a  client  interface  implemented  using 
+National  Instrument’s  LabVIEW  and  deployed  as  an  interactive 
+lab. 
+
+3.2.2  Hardware Part 
+
+The  hardware  part  of  our  remote  experience  (Fig  6)  contains  a 
+Sensor  CASSY,  resistances,  capacitors,  Lab  Server,  and  IP 
+Webcam. 
+The LabVIEW software and the entire modules are installed in the 
+Host  Computer  (E-LAB  FSBM  Lab  Server)  that  controls  the 
+whole  system.    The  host  computer  communicates  synchronously 
+with  the  chassis  over  a  TCP/IP  connection,  a  real-time  controller 
+implements the major complicated algorithms. 
+
+Figure 5: Schema of experience 
+
+ 
+
+3 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+
+Y. KHAZRI et Al. 
+
+Figure 6: Mounting experience 
+
+ 
+The  real-time  controller  consists of  an  industrial PC  that  reliably 
+and  deterministically  executes  LabVIEW  real-time  applications 
+and  offers  multi-rate  control,  execution  tracing,  onboard  data 
+logging, and communication with peripherals [10]. It receives the 
+data  from  the  Sensor  CASSY,  executes  the  control  algorithms, 
+and  sends  the  data  to  the  in  real-time.  And  an  IP  Webcam  was 
+used to provide real-time viewing experience. The Lab server and 
+the  IP  Webcam  were  connected  to  the  Internet  through  a  router 
+switch. 
+
+3.2.3 
+
+Software part 
+
+The  software  was  hosted  on  the  web  server  application  using 
+LabVIEW.  It  provides  communication  through  TCP\IP  sockets 
+with  clients.  The  user  received  commands  and  parameters 
+necessary  for  measurement  readings  and  transmuted  the  results. 
+Through another module, it communicated with the capture card. 
+The  user  interface  allowed  control  and  monitoring  of  client 
+connections.  
+Client side, the server application, provided the anticipated result 
+of  the  experiment.  It  was  documented  in  the  form  of  a  user’s 
+manual and it provided both theoretical background and guidance.  
+ 
+
+3.3  Velocity of Sound in Air 
+
+3.3.1  Description of the experience 
+
+The purpose of the experiment is to determine the velocity of 
+sound  in  air  by  measuring  the  time  delay  between  an  ultrasound 
+transmitter  and  a  receiver  placed  successively  at  different 
+distances as shown in Figure 7. 
+
+4 
+ 
+
+Figure 7: Equipment of the experience 
+
+ 
+
+3.3.2  Hardware Part 
+
+To  adapt  the  experiment  so  that  it  can  be  handled  remotely,  we 
+needed  to  make  changes  to  the hardware.  First,  the transmitter  is 
+kept in a fixed position and the receptor was used a stepper motor 
+to vary the distance between the transmitter and the receiver of 13 
+cm to 47 cm.  
+For  measurement  and  control  operations,  we  used  a  data 
+acquisition card based microcontroller family of  microcontrollers 
+(PIC16F876). The latter, controlled by 20 MHz quartz, produced a 
+time  base  for  the  measurement  intervals  and  provided  the 
+counting operation, it also provided control of the stepping motor 
+through a power interface. The card also facilitated asynchronous 
+serial  communications  with  the  server  in  order  to  receive  and 
+transmit measurements of parameters for the results (Figure 8). 
+ 
+
+Figure 8: Control card 
+
+In  addition  to  this  card,  an  IP  camera  was  used  to  provide  real-
+time  viewing  experience.  The  server  and  the  camera  were 
+connected to the Internet through a router switch. 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION 
+
+ 
+3.3.3 
+
+Software part 
+
+The software  was hosted on the web server application. The web 
+server  application  was  developed  using  LabVIEW.  It  provided 
+communication through TCP\IP sockets with clients.   
+The  user  received  commands  and  parameters  necessary  for 
+measurement  readings  and  transmuted  the  results.  Through 
+another module, it communicated with the capture card. The user 
+interface allowed control and monitoring of client connections. 
+Client side, the server application, provided the anticipated result 
+of  the  experiment.  It  was  documented  in  the  form  of  a  user’s 
+manual and it provided both theoretical background and guidance. 
+It  was  delivered  through  HTML  pages  in  Internet  Explorer, 
+Mozilla  Firefox,  For  accuracy  of  the  movement  of  receptor,  the 
+motor moves at a pitch of 7, 5 cm. 
+
+ 
+
+Figure 9: Client Interface 
+
+ 
+
+For  manipulation  of  the  experience,  students  can  first  choose  a 
+position  of  the  receiver  and  click  ok,  automatically  the  receiver 
+will  move  to  the  indicated  position,  and  the  result  will  be 
+displayed  on  the  graph  next  to  it.  After  they  determine  the  time 
+between  the  transmitter  and  receiver  signal  to  calculate  the 
+velocity of sound. 
+For example: 
+We chose the position 2 which means that d = 30 cm  
+And from the graph (Figure 10), T = 0.0009 s 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+
+ 
+
+Figure 10: graph of time 
+
+So V= d/t 
+        = 0,31/0,0009 
+        = 344,44 m/s 
+ 
+The  students  browse  the  service  broker  to  register  and  request 
+membership to the group associated with the laboratory. 
+This  procedure  allows  permission  and  access  to  the  booking 
+system,  and  then  they  choose  the  available  lab  experiment  to 
+launch it. 
+
+4.  CONCLUSION  
+
+The  main  objective  of  this  project  was  to  create  an  effective 
+remote laboratory network in the Maghreb region. 
+This  work  presented  the  LabVIEW-based  realization  of  a  remote 
+laboratories  dedicated  to  students  in  distance  e-sience  group  to 
+enable  them  to  manipulate  and  control  in  real  time  the  deferent 
+experiences. 
+The  feasibility  of  accessing  a  remote  laboratory  from  a  simple 
+Internet  browser  has  been  demonstrated.  This  concept 
+is 
+particularly  interesting  for  several  reasons  since  it  allows: 
+eliminating 
+through  affording 
+flexibility,  affording  the  opportunity  for  conducting  an  online 
+experiment  with  real  equipment  anytime  and  anywhere,  and  the 
+sharing  of  scarce  and  expensive  resources  between  laboratories 
+and educational institutions. 
+
+time  and  space  constraints 
+
+REFERENCES 
+ 
+[1]  M.  Gerza,  and  F.  Schauer,  ”Intelligent  Processing  of  Experimental  Data  in 
+
+ISES Remote Laboratory” iJOE ‒Volume 12, Issue 3,  2016. 
+
+[2]  S.  Gadzhanov,  A.    Nafalski,  and  Z.  Nedic, “Remote  Laboratory  for  Advanced 
+Motion  Control  Experiments”,  World  Transactions  on  Engineering  and 
+Technology Education, Vol.11, No.4, 2013. 
+
+[3]  K.    Butler-Purry  and  H.    Chou,  2011.  Real-Time  Rapid  Embedded  Power 
+System Control Prototyping Simulation Test-Bed Using LabVIEW and RTDS, 
+Practical  Applications  and  Solutions  Using  LabVIEW™  Software,  Dr.  Silviu 
+Folea (Ed.), ISBN: 978-953-307-650-8, InTech.  
+
+[4]  Y.  Khazri,  M.  Rouane,  A.    Fahli,  M.  Moussetad,  A.    Khaldouni,  and  A.  
+Naddami,  “Developing  a  Remote  Practice  for  Laboratory  Experiments  on 
+Measuring Instruments”, iJOE - Vol 10, No 5 (2014). 
+
+[5]  http://www.esience.org/ 
+[6]  Y.  Khazri,  A.  Fahli,  and  M.  Moussetad,”  Implementing  a  Remote  Experience 
+for  Engineering  Education”  IEEE,  Proceedings  of  2015  International 
+
+ 
+
+5 
+
+Y. KHAZRI et Al. 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+
+Conference  on  Interactive  Collaborative  Learning  (ICL),  20-24  September 
+2015, Florence, Italy. 
+
+[7]  M. Tawfik, E. Sancristobal, S. Martin, R. Gil, G. Diaz, J. Peire, and M.  Castro, 
+“on the design of remote laboratories”, IEEE, international conference educon, 
+Marrakesh, Morocco 17-20 April 2012. 
+
+[8]  B.  Nasri,  R.  Ennetta,  and  S.    Bouallègue,  Mechanical  Remote  Laboratory 
+
+Development using iLab Shared Architecture, iJOE -Vol 11, No 5 (2015). 
+
+[9]  M.  Teng,  H.  Considine,  Z.  Nedic,  and  A.  Nafalski,  « Current  and  Future 
+Developments  in  Remote  Laboratory  NetLab »,  Int.  J.  Online  Eng.  IJOE,  vol. 
+12, no 08, p. 4, août 2016. 
+
+[10]  National 
+
+Instruments,  “Distance-Learning  Remote  Laboratories  using 
+
+LabVIEW”. 
+
+[11]  Ahmed  Naddami,  Ahmed  Fahli,  Mourad  Gourmaj,  Andreas  Pester,  Ramona 
+Oros,” Importance of a Network of Online Labs in Magrebian Countries”, iJOE 
+‒Volume 10, Issue 5, 2014. 
+
+[12]  http://www.ni.com/ 
+[13]  P.Sládeka,  L.  Paweraa,  “Remote  laboratory  –  new  possibility  for  school   
+
+experiments,” ICEEPSY Procedia Social and Behavioral Sciences: Brno, Czech 
+Republic, 12 Déc 2011, pp.164–167 
+
+[14]  R. Heradio, L. de la Torre, and S. Dormido, « Virtual and remote labs in control 
+
+education: A survey », Annu. Rev. Control, vol. 42, p. 1‑10, 2016. 
+
+[15]  I.  Gustavsson  and  al.,  « On  objectives  of  instructional  laboratories,  individual 
+assessment, and use of collaborative remote laboratories », IEEE Trans. Learn. 
+Technol., vol. 2, no 4, p. 263‑274, 2009. 
+
+[16]  L.  F.  Zapata  Rivera  and  M.  M.  Larrondo  Petrie,  « Models  of  Collaborative 
+Remote  Laboratories  and  Integration  with  Learning  Environments »,  Int.  J. 
+Online Eng. IJOE, vol. 12, no 09, p. 14, sept. 2016. 
+
+[17]  M.  Teng,  H.  Considine,  Z.  Nedic,  and  A.  Nafalski,  « Current  and  Future 
+Developments  in  Remote  Laboratory  NetLab »,  Int.  J.  Online  Eng.  IJOE,  vol. 
+12, no 08, p. 4, août 2016. 
+
+[18]  Z. Lei, W.  Hu, H. Zhou, L. Zhong and X.  Gao, A DC Motor Position Control 
+System in a 3D Real-Time Virtual Laboratory Environment Based on NCSLab 
+3D, iJOE ‒ Volume 11, Issue 3, 2015, 
+http://dx.doi.org/10.3991/ijoe.v11i3.4556 
+
+[19]  T. Richter, R. Watson, S. Kassavetis, M. Kraft, P. Grube, D. Boehringer, P. De 
+Vries, E. Hatzikraniotis, and S.  Logothetidis,  "The WebLabs of  the University 
+of  Cambridge:  A  study  of  securing  remote  instrumentation,"  in  Remote 
+Engineering  and  Virtual  Instrumentation  (REV),  2012  9th  International 
+Conference on, 2012, pp. 1-5. http://dx.doi.org/10.1109/rev.2012.6293099 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+6 
+ 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION (E-LAB FSBM) 
+
+ 
+
+ 
+
+Y. Khazri 
+
+ 
+
+A. Al Sabri 
+
+ 
+
+B. Sabir 
+
+Physics Department, University  
+
+Physics Department, University  
+
+Physics Department, University  
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+khazri10@gmail.com 
+
+ 
+
+H. Toumi 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+a.alsabri2011@gmail.com 
+
+ 
+
+M. Moussetad 
+
+Hassan II – Casablanca 
+
+Morocco 
+
+brahimsabir95@gmail.com 
+
+ 
+
+Ahmed Fahli 
+
+Physics Department, University  
+
+Physics Department, University  
+
+Physics Department, Hassan I University - 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+toumi.doc@gmail.com 
+
+Hassan II – Casablanca 
+
+ Morocco 
+
+m.moussetad@gmail.com 
+
+ 
+
+Settat,  
+
+Morocco  
+
+fahli@uhp.ac.ma 
+
+ 
+
+ABSTRACT 
+
+Computer  networks  associated  to  more  and  more  interactive 
+applications, and mobile interfaces can favor innovative use in the 
+field of the scientific and technical practical training. Alternatives 
+in the training in traditional such as the remote laboratories can be 
+a contribution to solve the problem of the growing numbers of the 
+students.  The  Remote 
+laboratories  are  flexible,  distributed 
+environments which enable a learner to perform real experiments 
+via  the  web.  Of  such  facilities  provide  a  practical  education  to 
+growing  numbers  of  students,  despite  the  material  resources  and 
+supervision  often  limited.  They  can  also  enable  the  sharing  of 
+manipulations between several academic institutions nationally or 
+internationally, and to enjoy the various partner’s costly resources 
+which they would not have access. In a context of strong demand 
+of  the  South  countries  for  training  in  the  domain  of  technicians 
+and  engineers,  our  project  (rESeau  maghrébIn  de  laboratoirEs  à 
+distaNCE,  eSience),  provide  a  response  in  the  Engineering  field. 
+In this work, the main objective was to build an interactive system 
+to control and manipulate a distance experiences in physics at any 
+time with any browser in real-time using a client interface. 
+
+KEYWORDS 
+eSience,  Remote  laboratories,  Engineering  Education,  Internet,   
+National Instruments, LabVIEW. 
+
+Permission  to  make  digital  or  hard  copies  of  all  or  part  of  this  work  for 
+personal or classroom use is granted without fee provided that copies are 
+not made or distributed for profit or commercial advantage and that copies 
+bear  this  notice  and  the  full  citation  on  the  first  page.  Copyrights  for 
+components  of  this  work  owned  by  others  than  ACM  must  be  honored. 
+Abstracting  with  credit  is  permitted.  To  copy  otherwise,  or  republish,  to 
+post on servers or to redistribute to lists, requires prior specific permission 
+and/or a fee. Request permissions from Permissions@acm.org.  
+
+BDCA'17, March 29-30, 2017, Tetouan, Morocco  
+© 2017 Association for Computing Machinery. 
+ACM ISBN 978-1-4503-4852-2/17/03…$15.00  
+http://dx.doi.org/10.1145/3090354.3090460 
+
+1  INTRODUCTION 
+
+is  an 
+
+theoretical  courses,  students  come 
+
+to 
+to 
+to  conduct  experiments  and  appreciate 
+
+The  traditional  teaching  methods  for  students  at  schools  and 
+universities  are  obsolete  and  not  effective  enough.  The  students 
+often expect higher level teaching methods in the field of physics, 
+biology,  chemistry  and  electro-engineering,  which  can help  them 
+to perceive real world phenomena in a better way [1]. 
+important 
+In  engineering  education,  practical  work 
+the 
+complement 
+the 
+laboratories 
+discrepancies  between 
+their  observations  and  predictions 
+according  to  the  theoretical  courses.    However,  due  to  several 
+limiting  factors  in  traditional  laboratory  experiments,  students 
+cannot  get  the  necessary  experiences.  Remote  laboratories  for 
+instruments control are an important tool for teaching students in 
+physics  and  of  control  systems  engineering  and  experimentation 
+with a wide range of feedback devices [2]. 
+Remote laboratories refer to a distributed computing environment 
+used  as  a distance  education platform.  It  is  flexible,  allowing  the 
+student  to  perform  experiments  through  interactions  with  real 
+devices and, real instruments, via remotely operated mechanisms. 
+This  type  of  educational  experience  is  essential  in  scientific  and 
+technical 
+these 
+experiences  to  students  remotely  meets  real  needs  of  both  the 
+students and the universities [14].  
+The  development  of  remote  laboratories  is  a  promising  direction 
+for  the  future  of  engineering  education  because  they  provide 
+means for students to design and conduct experiments without the 
+need for physical laboratories equipment on site. 
+Internet technologies and software applications (such as National 
+Instrument’s  LabVIEW,  which  is  considered  as  the  leading 
+professional  software  for  analysis,  data  acquisition,  real-time 
+control and remote laboratories) have had an enormous impact on 
+engineering education [3].  
+
+training.  Moreover,  being  able 
+
+to  provide 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+With  remote  laboratories,  the  interactions  between  the  students 
+and  the  reel  instruments  are  facilitated  by  an  appropriate 
+communications  platform  which  is  equipped  with  a  system 
+dedicated  to  the  management  of  a  number  of  software  and 
+hardware  interfaces  [4].  Remote  laboratories  allow  a  practical 
+education  to  growing  numbers  of  students,  despite  the  material 
+resources and often limited supervision [15]. They can also enable 
+the  sharing  of  handling  between  several  academic  institutions 
+nationally  or  internationally,  and  to  enjoy  the  various  partner’s 
+costly resources which they would not have access. 
+
+2  E-SIENCE PROJECT 
+
+In a context of strong demand of the South countries for training 
+in  the  domain  of  technicians  and  engineers,  our  project  (rESeau 
+maghrébIn  de  laboratoirEs  à  distaNCE,  eSience)  provide  a 
+response in the Engineering field. 
+Following the saying "I hear and I forget - I see and I remember. - 
+I  do  and  I  understand"  the  project  will  build  on  the  eLearning 
+complements 
+integrating  practical  work 
+remotely, and will train a large number of students. 
+
+traditional  by 
+
+the 
+
+Y. KHAZRI et Al. 
+
+3.1.1.  Architecture 
+
+ELAB  FSBM  is  the  remote  laboratories  in  physics,  which  we 
+developed in the Faculty of Sciences Ben M'sik in Casablanca. 
+The  Remote  laboratories  are  flexible,  distributed  environments, 
+which  enable  a  learner  to  perform  real  experiments  via  the  web. 
+The  learner  carries  out  the  experiment  and  takes  measurements 
+online,  but  he  or  she  can  recover  the  real,  rather  than  simulated, 
+experimental  results  in  order  to  utilize  them.  Each  participant 
+plays  a  role  during  his  or  her  interactions  with  other  laboratories 
+participants,  allowing  all  participants  to  share  in  hardware 
+resources and in one another’s expertise [7]. A remote laboratory 
+can be built according to the   following diagram (Fig. 2): 
+
+Figure 2: The architecture of the remote laboratories 
+
+ 
+
+ 
+
+Figure 1: e-Sience community 
+
+ 
+The  e-Sience  project,  coordinated  by  the  University  Bordeaux 
+associate  16  academic  and  industrial  partners  of  North  Africans 
+countries  (Morocco,  Tunisia,  Algeria)  and  Europeans  (France, 
+Greece, Austria and Romania). 
+ This  network  of  remote  laboratories  has  the  objective  of 
+modernization  of  higher  education  in  science  and  technology 
+should fit characteristics like:  
+•  Adaptation  of  content  to  the  development  in  science  and 
+technology,  taking  into        account  the  expectations  of  the 
+professional world; 
+• Implementation of practical courses for on distance education; 
+• Creating teaching units in the eLearning format; 
+• Setting up and using an LMS (Learning Management System);  
+• Evaluation of the newly created educational resources;  
+• Use of the pedagogical resources [5, 6]. 
+
+3 
+
+ REMOTE LABORATORIES IN PHYSICS 
+
+(E-LAB FSBM) 
+
+2 
+ 
+
+ 
+The  Interactive  Lab  Server  is  the  component  that  is  connected 
+directly  to  the  lab  equipment  and  deals  with  the  actual  operation 
+of  the  experiment  hardware.  It  is  the  administrative  interface  of 
+the lab equipment and enables laboratory administrators to set up 
+and  configure  each  experiment  independently  [16,  18,  19].  The 
+Interactive  Service  Broker  is  the  heart  of  the  ISA.  It  provides 
+generic 
+authentication, 
+authorization, user management,  and scheduling and data storage 
+[8]. 
+
+administrative 
+
+services, 
+
+such 
+
+as 
+
+Figure 3: Communication User-Instrument 
+
+ 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION 
+
+the 
+
+remotely  with 
+
+to  communicate 
+
+instrument.  The  response  of 
+
+ 
+Remote  access  to  the  instrumentation  can  then  be  performed  in 
+three different ways. 
+      The  first  one  takes  place  directly  from  the  control  PC.  The 
+control  can  be  local  via  a  General  Purpose  Interface  Bus  (GPIB) 
+bus,  and  interfaced  to  the  PC  via  a  PCI  expansion  card.  The 
+distance  being  then  limited  by  the  maximum  length  of  the  GPIB 
+connection  this  is  of  the  order  of  magnitude  of  the  tens  of 
+metersThe  control  can  be  remotely  connected  via  the  LAN  to  a 
+LAN-GPIB  interface  box.  GPIB  requests  are  encapsulated  in  the 
+Ethernet  frames  and  then  delivered  to  the  interface  box  that 
+communicates  with 
+the 
+instrument to these requests follows the opposite path. The control 
+PC  must  have  the  software  drivers  required  for  communication 
+with the PCI card or the LAN-GPIB enclosure and the LabVIEW 
+application used for the design of virtual instruments. 
+the 
+    The  second  way 
+instrumentation  is  to  use  a  PC  where  only  the  LabVIEW 
+application  is  installed,  excluding  any  specific  driver.  LabVIEW 
+integrates  natively  all  the  software  components  that  allow  you  to 
+connect  through  the  LAN  to  a  virtual  instrument  loaded  into  the 
+RAM  of  the  control  PC.  Communication  is  established  through 
+the network with the "Connect to remote panel" function. All the 
+functions of the virtual instrument loaded into the memory of the 
+control  machine  are  accessible.  Communication  with 
+the 
+measuring  instruments  is  entrusted  to  the  control  PC.  No  special 
+software drivers are required. 
+    The  third  way  to  communicate  does  not  require  a  physical 
+connection with the instrumentation or the installation of specific 
+drivers  like  the  machine  control,  or  the  LabVIEW  application  as 
+outlined in the previous case, but a standard web browser, such as 
+Internet  Explorer  or  Mozilla,  associated  with  a  "plug-in" 
+available.  The  installation  of  the  latter,  however,  requires 
+administrative rights for Windows 2000 or XP machine type. For 
+Internet  Explorer,  this  is  LVActiveXControl.dll.  As  for  Mozilla, 
+the  plugin  is  denominated  NPLVWin32.dll.  Both  must  be  in  the 
+subdirectory  "Plugins"  of  the  respective  installation  directories 
+browsers.  They  are  available  as  a  software  package  called 
+"LabVIEW  Run-Time  Engine"  and  available  on  the  platforms 
+Macintosh,  Windows  and  Linux,  which  ensures  universality  for 
+remote access [9-11, 17]. 
+LabVIEW installed on the PC control, has its own Web server on 
+which  one  can  come 
+the  remote  PC, 
+conventionally with a standard web browser. The functions “web 
+server”  and  “lab  server”  are  hosted  on  the  same  machine.  GPIB 
+requests  are  encapsulated  in  the  HTTP  protocol,  sent  to  the 
+control PC, decoded and transmitted to the virtual instrument. The 
+measuring  device  response  to  these  requests  follows  the  reverse 
+path.  The  front  of  the  instrument  is  loaded  only  once,  at  the 
+opening  of  the  corresponding  web  page.  Then,  only  the  requests 
+and  the  corresponding  responses  are  transported  on  the  network, 
+which limits the traffic to the strict minimum. 
+In  this  work,  we  present  the  different  experiences  that  we  have 
+(laboratory  of 
+developed  within  our 
+
+laboratory  LIMAT 
+
+to  connect  from 
+
+ 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+
+engineering  and  materials)  in  Faculty  of  Sciences  Ben  M'sik  of 
+Casablanca, so that they can be accessed remotely. 
+
+3.2  RC-Circuit  
+
+3.2.1  Description of the experience 
+
+In  this  experiment,  we  will  study  charging  a  capacitor  by 
+connecting it to an emf source through a resistor. The experiment 
+also  includes  the  study  of  discharging  phenomena  of  a  capacitor 
+through a resistor [12, 13]. 
+
+Figure 4: RC Circuit 
+
+ 
+
+Objectives: 
+
+•  To  study  charging  and  discharging  process  through 
+
+capacitors. 
+
+•  To determine the time constant τ of an RC-circuit. 
+
+In this work, the main objective was to build an interactive system 
+to  determine  the  synchronous  reactance  at  any  time  with  any 
+browser  in  real-time  using  a  client  interface  implemented  using 
+National  Instrument’s  LabVIEW  and  deployed  as  an  interactive 
+lab. 
+
+3.2.2  Hardware Part 
+
+The  hardware  part  of  our  remote  experience  (Fig  6)  contains  a 
+Sensor  CASSY,  resistances,  capacitors,  Lab  Server,  and  IP 
+Webcam. 
+The LabVIEW software and the entire modules are installed in the 
+Host  Computer  (E-LAB  FSBM  Lab  Server)  that  controls  the 
+whole  system.    The  host  computer  communicates  synchronously 
+with  the  chassis  over  a  TCP/IP  connection,  a  real-time  controller 
+implements the major complicated algorithms. 
+
+Figure 5: Schema of experience 
+
+ 
+
+3 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+
+Y. KHAZRI et Al. 
+
+Figure 6: Mounting experience 
+
+ 
+The  real-time  controller  consists of  an  industrial PC  that  reliably 
+and  deterministically  executes  LabVIEW  real-time  applications 
+and  offers  multi-rate  control,  execution  tracing,  onboard  data 
+logging, and communication with peripherals [10]. It receives the 
+data  from  the  Sensor  CASSY,  executes  the  control  algorithms, 
+and  sends  the  data  to  the  in  real-time.  And  an  IP  Webcam  was 
+used to provide real-time viewing experience. The Lab server and 
+the  IP  Webcam  were  connected  to  the  Internet  through  a  router 
+switch. 
+
+3.2.3 
+
+Software part 
+
+The  software  was  hosted  on  the  web  server  application  using 
+LabVIEW.  It  provides  communication  through  TCP\IP  sockets 
+with  clients.  The  user  received  commands  and  parameters 
+necessary  for  measurement  readings  and  transmuted  the  results. 
+Through another module, it communicated with the capture card. 
+The  user  interface  allowed  control  and  monitoring  of  client 
+connections.  
+Client side, the server application, provided the anticipated result 
+of  the  experiment.  It  was  documented  in  the  form  of  a  user’s 
+manual and it provided both theoretical background and guidance.  
+ 
+
+3.3  Velocity of Sound in Air 
+
+3.3.1  Description of the experience 
+
+The purpose of the experiment is to determine the velocity of 
+sound  in  air  by  measuring  the  time  delay  between  an  ultrasound 
+transmitter  and  a  receiver  placed  successively  at  different 
+distances as shown in Figure 7. 
+
+4 
+ 
+
+Figure 7: Equipment of the experience 
+
+ 
+
+3.3.2  Hardware Part 
+
+To  adapt  the  experiment  so  that  it  can  be  handled  remotely,  we 
+needed  to  make  changes  to  the hardware.  First,  the transmitter  is 
+kept in a fixed position and the receptor was used a stepper motor 
+to vary the distance between the transmitter and the receiver of 13 
+cm to 47 cm.  
+For  measurement  and  control  operations,  we  used  a  data 
+acquisition card based microcontroller family of  microcontrollers 
+(PIC16F876). The latter, controlled by 20 MHz quartz, produced a 
+time  base  for  the  measurement  intervals  and  provided  the 
+counting operation, it also provided control of the stepping motor 
+through a power interface. The card also facilitated asynchronous 
+serial  communications  with  the  server  in  order  to  receive  and 
+transmit measurements of parameters for the results (Figure 8). 
+ 
+
+Figure 8: Control card 
+
+In  addition  to  this  card,  an  IP  camera  was  used  to  provide  real-
+time  viewing  experience.  The  server  and  the  camera  were 
+connected to the Internet through a router switch. 
+
+DEVELOPMENT AND MANAGEMENT OF A REMOTE 
+
+LABORATORY IN PHYSICS FOR ENGINEERING 
+
+EDUCATION 
+
+ 
+3.3.3 
+
+Software part 
+
+The software  was hosted on the web server application. The web 
+server  application  was  developed  using  LabVIEW.  It  provided 
+communication through TCP\IP sockets with clients.   
+The  user  received  commands  and  parameters  necessary  for 
+measurement  readings  and  transmuted  the  results.  Through 
+another module, it communicated with the capture card. The user 
+interface allowed control and monitoring of client connections. 
+Client side, the server application, provided the anticipated result 
+of  the  experiment.  It  was  documented  in  the  form  of  a  user’s 
+manual and it provided both theoretical background and guidance. 
+It  was  delivered  through  HTML  pages  in  Internet  Explorer, 
+Mozilla  Firefox,  For  accuracy  of  the  movement  of  receptor,  the 
+motor moves at a pitch of 7, 5 cm. 
+
+ 
+
+Figure 9: Client Interface 
+
+ 
+
+For  manipulation  of  the  experience,  students  can  first  choose  a 
+position  of  the  receiver  and  click  ok,  automatically  the  receiver 
+will  move  to  the  indicated  position,  and  the  result  will  be 
+displayed  on  the  graph  next  to  it.  After  they  determine  the  time 
+between  the  transmitter  and  receiver  signal  to  calculate  the 
+velocity of sound. 
+For example: 
+We chose the position 2 which means that d = 30 cm  
+And from the graph (Figure 10), T = 0.0009 s 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+
+ 
+
+Figure 10: graph of time 
+
+So V= d/t 
+        = 0,31/0,0009 
+        = 344,44 m/s 
+ 
+The  students  browse  the  service  broker  to  register  and  request 
+membership to the group associated with the laboratory. 
+This  procedure  allows  permission  and  access  to  the  booking 
+system,  and  then  they  choose  the  available  lab  experiment  to 
+launch it. 
+
+4.  CONCLUSION  
+
+The  main  objective  of  this  project  was  to  create  an  effective 
+remote laboratory network in the Maghreb region. 
+This  work  presented  the  LabVIEW-based  realization  of  a  remote 
+laboratories  dedicated  to  students  in  distance  e-sience  group  to 
+enable  them  to  manipulate  and  control  in  real  time  the  deferent 
+experiences. 
+The  feasibility  of  accessing  a  remote  laboratory  from  a  simple 
+Internet  browser  has  been  demonstrated.  This  concept 
+is 
+particularly  interesting  for  several  reasons  since  it  allows: 
+eliminating 
+through  affording 
+flexibility,  affording  the  opportunity  for  conducting  an  online 
+experiment  with  real  equipment  anytime  and  anywhere,  and  the 
+sharing  of  scarce  and  expensive  resources  between  laboratories 
+and educational institutions. 
+
+time  and  space  constraints 
+
+REFERENCES 
+ 
+[1]  M.  Gerza,  and  F.  Schauer,  ”Intelligent  Processing  of  Experimental  Data  in 
+
+ISES Remote Laboratory” iJOE ‒Volume 12, Issue 3,  2016. 
+
+[2]  S.  Gadzhanov,  A.    Nafalski,  and  Z.  Nedic, “Remote  Laboratory  for  Advanced 
+Motion  Control  Experiments”,  World  Transactions  on  Engineering  and 
+Technology Education, Vol.11, No.4, 2013. 
+
+[3]  K.    Butler-Purry  and  H.    Chou,  2011.  Real-Time  Rapid  Embedded  Power 
+System Control Prototyping Simulation Test-Bed Using LabVIEW and RTDS, 
+Practical  Applications  and  Solutions  Using  LabVIEW™  Software,  Dr.  Silviu 
+Folea (Ed.), ISBN: 978-953-307-650-8, InTech.  
+
+[4]  Y.  Khazri,  M.  Rouane,  A.    Fahli,  M.  Moussetad,  A.    Khaldouni,  and  A.  
+Naddami,  “Developing  a  Remote  Practice  for  Laboratory  Experiments  on 
+Measuring Instruments”, iJOE - Vol 10, No 5 (2014). 
+
+[5]  http://www.esience.org/ 
+[6]  Y.  Khazri,  A.  Fahli,  and  M.  Moussetad,”  Implementing  a  Remote  Experience 
+for  Engineering  Education”  IEEE,  Proceedings  of  2015  International 
+
+ 
+
+5 
+
+Y. KHAZRI et Al. 
+
+BDCA’17, March 2017, Tetuan, Morocco 
+ 
+
+Conference  on  Interactive  Collaborative  Learning  (ICL),  20-24  September 
+2015, Florence, Italy. 
+
+[7]  M. Tawfik, E. Sancristobal, S. Martin, R. Gil, G. Diaz, J. Peire, and M.  Castro, 
+“on the design of remote laboratories”, IEEE, international conference educon, 
+Marrakesh, Morocco 17-20 April 2012. 
+
+[8]  B.  Nasri,  R.  Ennetta,  and  S.    Bouallègue,  Mechanical  Remote  Laboratory 
+
+Development using iLab Shared Architecture, iJOE -Vol 11, No 5 (2015). 
+
+[9]  M.  Teng,  H.  Considine,  Z.  Nedic,  and  A.  Nafalski,  « Current  and  Future 
+Developments  in  Remote  Laboratory  NetLab »,  Int.  J.  Online  Eng.  IJOE,  vol. 
+12, no 08, p. 4, août 2016. 
+
+[10]  National 
+
+Instruments,  “Distance-Learning  Remote  Laboratories  using 
+
+LabVIEW”. 
+
+[11]  Ahmed  Naddami,  Ahmed  Fahli,  Mourad  Gourmaj,  Andreas  Pester,  Ramona 
+Oros,” Importance of a Network of Online Labs in Magrebian Countries”, iJOE 
+‒Volume 10, Issue 5, 2014. 
+
+[12]  http://www.ni.com/ 
+[13]  P.Sládeka,  L.  Paweraa,  “Remote  laboratory  –  new  possibility  for  school   
+
+experiments,” ICEEPSY Procedia Social and Behavioral Sciences: Brno, Czech 
+Republic, 12 Déc 2011, pp.164–167 
+
+[14]  R. Heradio, L. de la Torre, and S. Dormido, « Virtual and remote labs in control 
+
+education: A survey », Annu. Rev. Control, vol. 42, p. 1‑10, 2016. 
+
+[15]  I.  Gustavsson  and  al.,  « On  objectives  of  instructional  laboratories,  individual 
+assessment, and use of collaborative remote laboratories », IEEE Trans. Learn. 
+Technol., vol. 2, no 4, p. 263‑274, 2009. 
+
+[16]  L.  F.  Zapata  Rivera  and  M.  M.  Larrondo  Petrie,  « Models  of  Collaborative 
+Remote  Laboratories  and  Integration  with  Learning  Environments »,  Int.  J. 
+Online Eng. IJOE, vol. 12, no 09, p. 14, sept. 2016. 
+
+[17]  M.  Teng,  H.  Considine,  Z.  Nedic,  and  A.  Nafalski,  « Current  and  Future 
+Developments  in  Remote  Laboratory  NetLab »,  Int.  J.  Online  Eng.  IJOE,  vol. 
+12, no 08, p. 4, août 2016. 
+
+[18]  Z. Lei, W.  Hu, H. Zhou, L. Zhong and X.  Gao, A DC Motor Position Control 
+System in a 3D Real-Time Virtual Laboratory Environment Based on NCSLab 
+3D, iJOE ‒ Volume 11, Issue 3, 2015, 
+http://dx.doi.org/10.3991/ijoe.v11i3.4556 
+
+[19]  T. Richter, R. Watson, S. Kassavetis, M. Kraft, P. Grube, D. Boehringer, P. De 
+Vries, E. Hatzikraniotis, and S.  Logothetidis,  "The WebLabs of  the University 
+of  Cambridge:  A  study  of  securing  remote  instrumentation,"  in  Remote 
+Engineering  and  Virtual  Instrumentation  (REV),  2012  9th  International 
+Conference on, 2012, pp. 1-5. http://dx.doi.org/10.1109/rev.2012.6293099 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+6 
+ 
+
