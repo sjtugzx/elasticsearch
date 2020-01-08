@@ -8,7 +8,7 @@ agent system  we  want  to  build.  For  each  desire,  we  can  identify
 belief  (Bi)  and  also  intention  (Ii)  for  it.  We  call  this  a  series  of
 desires  as  desire  lists  [Figure  2].  Through  this  step,  agent
 decomposition [Figure 3] is succeeded.
-bbb ccc ddd eee fff ggg hhh jjj ddd eee sss ccc bbb sss ccc  aaaa
+bbb ccc ddd eee fff ggg hhh jjj ddd eee sss ccc bbb sss ccc  aaa
 First,  we  find  out  a  system  desire,  which  is  called  as  a  global
 desire (Dg). To find out the global desire, we identify the system
 belief, which is called as a global belief (Bg). We also identify a

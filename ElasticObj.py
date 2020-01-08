@@ -41,7 +41,7 @@ class ElasticObj(object):
                         "acm_paper_analyzer": {
                             "type": "custom",
                             "tokenizer": "standard",
-                            "filter": ["lowercase", "my_stopwords", "eng_stemmer", "eng_stop", "asciifolding"]
+                            "filter": ["lowercase", "eng_stemmer", "eng_stop", "asciifolding"]
                         }
                     }
                 }
