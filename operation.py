@@ -193,11 +193,12 @@ def similarity_checking(index_name, file_path):
                 window_size = 14
                 slide_window = context[current_position:current_position + window_size]
                 continue
-            while match_flag and window_size < len(context):
+            while match_flag:
                 # increase window size by one and update slide_window
-                window_size += 1
+                window_size += 1000
                 if current_position + window_size >= len(context):
-                    window_size = len(context) - current_position + 1
+                    window_size = len(context)-current_position+1
+                    break
                 slide_window = context[current_position:current_position + window_size]
                 context_str = ' '.join(slide_window)
                 match_flag = es_search(index_name, context_str)
