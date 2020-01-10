@@ -49,39 +49,39 @@ def extract_info():
     paperInfo = []
     #select year, title, crawlID, PDFPath from 33 forms
     sqls=[
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAJS t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAmeghiniana t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAmetsoc t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAndgeo t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataBioone t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataDegruyter t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataEGU t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataEpisodes t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataErde t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataErdkunde t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataGeofizika t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataGeoscienceworld t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataIMD t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataIntres t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataJstage t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataMDPI t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataMicropress t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataNature t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOceanographySociety t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOfioliti t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOpenedition t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOxford t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataPopups t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataSagepub t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataSchweizerbart t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataSEG t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataTandf t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUB t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUchicago t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUnam t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUnb t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataWiley t WHERE PDFPath <> '';""",
-        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataZRC t WHERE PDFPath <> '';"""
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAJS t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAmeghiniana t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAmetsoc t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAndgeo t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataBioone t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataDegruyter t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataEGU t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataEpisodes t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataErde t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataErdkunde t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataGeofizika t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataGeoscienceworld t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataIMD t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataIntres t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataJstage t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataMDPI t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataMicropress t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataNature t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataOceanographySociety t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataOfioliti t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataOpenedition t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataOxford t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataPopups t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataSagepub t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataSchweizerbart t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataSEG t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataTandf t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataUB t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataUchicago t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataUnam t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataUnb t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataWiley t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataZRC t WHERE PDFPath <> '';"""
     ]
     for sql in sqls:
         cursor.execute(sql)
@@ -131,11 +131,12 @@ def parse(DataIO, save_path):
                         with open('%s' % save_path, 'a') as f:
                             result = x.get_text()
                             f.write(result + '\n')
+                            # print("Parse pdf successfully")
                 except:
                     print("Failed")
 
 
-def change_file_name(source_path, target_path, crawlID):
+def change_file_name(source_path, target_path, paperID):
     '''This is used to change response_body files to pdf and save'''
     # copy file from source_path to target_path
     source_name = source_path + '/response_body'
@@ -144,9 +145,10 @@ def change_file_name(source_path, target_path, crawlID):
     print("Copy file!")
     # rename file name
 
-    target_name_pdf = target_path + '/%d.pdf' % crawlID
-    os.rename(target_name, target_name_pdf)
-    print("add suffix successfully!")
+    target_name_pdf = target_path + '/%s.pdf' % paperID
+    if not os.path.exists(target_name_pdf):
+        os.rename(target_name, target_name_pdf)
+        print("add suffix successfully!")
     return target_name_pdf
 
 
@@ -157,7 +159,7 @@ def get_context(file_path):
             context = f.read().replace('\n', ' ')
     except FileNotFoundError:
         print("No such file or directory:" + file_path)
-        # print(context)
+    print(context)
     return context
 
 

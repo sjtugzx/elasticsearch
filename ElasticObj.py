@@ -49,7 +49,14 @@ class ElasticObj(object):
             # custom mappings
             "mappings": {
                 "properties": {
-                    ""
+                    "title":{
+                        "type":"text",
+                        "index": False
+                    },
+                    "year":{
+                        "type":"short",
+                        "index":False
+                    },
                     "context": {
                         "type": "text",
                         "index": True,
