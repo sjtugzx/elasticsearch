@@ -3,7 +3,7 @@ from elasticsearch import helpers
 
 
 class ElasticObj(object):
-    def __init__(self, index_name, ip='127.0.0.1'):
+    def __init__(self, index_name, ip='10.10.10.10'):
         '''
         initial connection host, port and index_name
         '''
@@ -41,7 +41,7 @@ class ElasticObj(object):
                         "acm_paper_analyzer": {
                             "type": "custom",
                             "tokenizer": "standard",
-                            "filter": ["lowercase", "eng_stemmer", "eng_stop", "asciifolding"]
+                            "filter": ["lowercase", "eng_stemmer", "my_stopwords","eng_stop", "asciifolding"]
                         }
                     }
                 }
@@ -49,6 +49,7 @@ class ElasticObj(object):
             # custom mappings
             "mappings": {
                 "properties": {
+                    ""
                     "context": {
                         "type": "text",
                         "index": True,

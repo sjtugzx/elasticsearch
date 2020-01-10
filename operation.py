@@ -12,18 +12,19 @@ from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LTTextBoxHorizontal, LAParams
 from elasticsearch import Elasticsearch
 import paramiko
+from shutil import copyfile
 
 importlib.reload(sys)
 
 
 def connect_to_server():
-    '''It is used to connect to ACEMAP server'''
+    '''It is used to connect to Database'''
     # create SSH obj
     ssh = paramiko.SSHClient()
     # allow to connect the server which is not in know_hosts
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     # connect to server
-    ssh.connect(hostname='server.acemap.cn', password='', username='', port=10001)
+    ssh.connect(hostname='server.acemap.cn', password='readonly', username='readonly', port=10001)
     # execute some commands
     command = ''
     stdin, stdout, stderr = ssh.exec_command(command, get_pty=True)
@@ -36,9 +37,9 @@ def connect_to_server():
 
 def extract_info():
     '''
-    It is used to extract relative information from database RawDataACM,
+    It is used to extract relative information from database RawDataACM, PDFPath
     including Paper Year, PDFPath and PaperID
-    @return these information
+    @return these information (year, title, crawlID, PDFPath)
     '''
     # database connection
     db = MySQLdb.connect(host="server.acemap.cn", user="readonly", passwd="readonly", port=13306)
@@ -46,16 +47,49 @@ def extract_info():
     cursor = db.cursor()
     # paperInfo is used to store the data retrieved from database
     paperInfo = []
-    sql = """SELECT t.Year, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataACM t WHERE PDFPath <> '';"""
-    cursor.execute(sql)
-    for data in cursor:
-        print(type(data))
-        paperInfo.append(data)
-        print(data)
+    #select year, title, crawlID, PDFPath from 33 forms
+    sqls=[
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAJS t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAmeghiniana t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAmetsoc t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataAndgeo t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataBioone t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataDegruyter t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataEGU t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataEpisodes t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataErde t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataErdkunde t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataGeofizika t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataGeoscienceworld t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataIMD t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataIntres t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataJstage t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataMDPI t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataMicropress t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataNature t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOceanographySociety t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOfioliti t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOpenedition t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataOxford t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataPopups t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataSagepub t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataSchweizerbart t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataSEG t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataTandf t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUB t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUchicago t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUnam t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataUnb t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataWiley t WHERE PDFPath <> '';""",
+        """SELECT t.Year, t.Title, t.CrawlID, t.PDFPath FROM crawler_rawdata.RawDataZRC t WHERE PDFPath <> '';"""
+    ]
+    for sql in sqls:
+        cursor.execute(sql)
+        for data in cursor:
+            paperInfo.append(data)
+            # print(data)
     print(len(paperInfo))
     db.close()
-    print(type(paperInfo))
-    print(type(paperInfo[2]))
     return paperInfo
 
 
@@ -101,13 +135,19 @@ def parse(DataIO, save_path):
                     print("Failed")
 
 
-def change_file_name(source_name):
-    '''This is used to change response_body files to pdf'''
-    target_name = source_name + '.pdf'
-    os.rename(source_name, target_name)
+def change_file_name(source_path, target_path, crawlID):
+    '''This is used to change response_body files to pdf and save'''
+    # copy file from source_path to target_path
+    source_name = source_path + '/response_body'
+    target_name=target_path+'/response_body'
+    copyfile(source_name, target_name)
+    print("Copy file!")
+    # rename file name
+
+    target_name_pdf = target_path + '/%d.pdf' % crawlID
+    os.rename(target_name, target_name_pdf)
     print("add suffix successfully!")
-    print(target_name)
-    return target_name
+    return target_name_pdf
 
 
 def get_context(file_path):
@@ -134,7 +174,7 @@ def delete_file(file):
     print("Delete the file successfully!")
 
 
-def es_search(index_name, info, ip='127.0.0.1'):
+def es_search(index_name, info, ip='10.10.10.10'):
     '''
     search function for es. Max size=50
     '''
