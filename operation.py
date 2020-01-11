@@ -249,8 +249,6 @@ def similarity_checking(index_name, file_path):
                 if current_position + window_size > len(context):
                     window_size = len(context)-current_position+1
                     break
-                old_window=context[current_position:current_position+window_size-1]
-                old_str=' '.join(old_window)
 
                 slide_window = context[current_position:current_position + window_size]
                 context_str = ' '.join(slide_window)
@@ -259,7 +257,7 @@ def similarity_checking(index_name, file_path):
                 match_flag = check(es_value)
             if window_size>13:
 
-                duplicated_str=old_str
+                duplicated_str=context_str
                 duplicated_list.append([title,year,duplicated_str])
                 duplicated_context_number += (window_size -1)
             current_position = current_position + window_size
@@ -273,4 +271,5 @@ def similarity_checking(index_name, file_path):
             print('Duplicated Paper Titile: ', du_context[0])
             print('This paper year is: ', du_context[1])
             print('Duplicated Context: ', du_context[2])
+            print(len(du_context[2].split()))
             print('='*100)
