@@ -47,8 +47,8 @@ def extract_info():
     cursor = db.cursor()
     # paperInfo is used to store the data retrieved from database
     paperInfo = []
-    #select year, title, crawlID, PDFPath from 33 forms
-    sqls=[
+    # select year, title, crawlID, PDFPath from 33 forms
+    sqls = [
 
         """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAJS t WHERE PDFPath <> '';""",
         """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAmeghiniana t WHERE PDFPath <> '';""",
@@ -141,7 +141,7 @@ def change_file_name(source_path, target_path, paperID):
     '''This is used to change response_body files to pdf and save'''
     # copy file from source_path to target_path
     source_name = source_path + '/response_body'
-    target_name=target_path+'/response_body'
+    target_name = target_path + '/response_body'
     copyfile(source_name, target_name)
     print("Copy file!")
     # rename file name
@@ -196,7 +196,7 @@ def es_search(index_name, info, ip='10.10.10.10'):
     result = es.search(index=index_name, size=50, body=search_body)
     similar_text = []
     for hit in result['hits']['hits']:
-        value=[hit['_source']['title'],hit['_source']['year'],hit['_source']['context']]
+        value = [hit['_source']['title'], hit['_source']['year'], hit['_source']['context']]
         # print(hit['_source']['context'])
         similar_text.append(value)
         # print(similar_text)
@@ -204,7 +204,7 @@ def es_search(index_name, info, ip='10.10.10.10'):
 
 
 def check(similar_text):
-    if len(similar_text)==0:
+    if len(similar_text) == 0:
         return False
     else:
         return True
@@ -216,8 +216,8 @@ def string_similar(s1, s2):
 
 def similarity_checking(index_name, file_path):
     context = get_context(file_path)
-    #dulpicated_dic is used to store duplicated context. Titile:Context
-    duplicated_list=[]
+    # dulpicated_dic is used to store duplicated context. Titile:Context
+    duplicated_list = []
     if context == '':
         print('something wrong with this file!')
     else:
@@ -234,20 +234,19 @@ def similarity_checking(index_name, file_path):
         while len(slide_window) != 0:
             context_str = ' '.join(slide_window)
             es_value = es_search(index_name, context_str)
-            match_flag=check(es_value)
+            match_flag = check(es_value)
             if not match_flag:
-
                 current_position = current_position + 1
                 window_size = 13
                 slide_window = context[current_position:current_position + window_size]
                 continue
-            title=es_value[0][0]
-            year=es_value[0][1]
+            title = es_value[0][0]
+            year = es_value[0][1]
             while match_flag:
                 # increase window size by one and update slide_window
                 window_size += 1
                 if current_position + window_size > len(context):
-                    window_size = len(context)-current_position+1
+                    window_size = len(context) - current_position + 1
                     break
 
                 slide_window = context[current_position:current_position + window_size]
@@ -255,11 +254,10 @@ def similarity_checking(index_name, file_path):
                 es_value = es_search(index_name, context_str)
 
                 match_flag = check(es_value)
-            if window_size>13:
-
-                duplicated_str=context_str
-                duplicated_list.append([title,year,duplicated_str])
-                duplicated_context_number += (window_size -1)
+            if window_size > 13:
+                duplicated_str = context_str
+                duplicated_list.append([title, year, duplicated_str])
+                duplicated_context_number += (window_size - 1)
             current_position = current_position + window_size
             window_size = 13
             slide_window = context[current_position:current_position + window_size]
@@ -268,8 +266,8 @@ def similarity_checking(index_name, file_path):
         duplicated_rate = duplicated_context_number / len(context)
         print("duplicated rate of this document is ", duplicated_rate)
         for du_context in duplicated_list:
-            print('Duplicated Paper Titile: ', du_context[0])
-            print('This paper year is: ', du_context[1])
+            print('Similar Paper Titile: ', du_context[0])
+            print('The year of this paper is: ', du_context[1])
             print('Duplicated Context: ', du_context[2])
             print(len(du_context[2].split()))
-            print('='*100)
+            print('=' * 100)
