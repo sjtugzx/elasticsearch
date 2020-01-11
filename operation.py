@@ -49,6 +49,7 @@ def extract_info():
     paperInfo = []
     #select year, title, crawlID, PDFPath from 33 forms
     sqls=[
+
         """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAJS t WHERE PDFPath <> '';""",
         """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAmeghiniana t WHERE PDFPath <> '';""",
         """SELECT t.Year, t.Title, t.PaperID, t.PDFPath FROM crawler_rawdata.RawDataAmetsoc t WHERE PDFPath <> '';""",
@@ -187,7 +188,7 @@ def es_search(index_name, info, ip='10.10.10.10'):
             "match_phrase": {
                 "context": {
                     "query": info,
-                    # "slop": 0
+                    "slop": 1
                 }
             }
         }
@@ -195,8 +196,10 @@ def es_search(index_name, info, ip='10.10.10.10'):
     result = es.search(index=index_name, size=50, body=search_body)
     similar_text = []
     for hit in result['hits']['hits']:
+        print(hit)
         # print(hit['_source']['context'])
         similar_text.append(hit['_source']['context'])
+    # print(similar_text)
     if len(similar_text) == 0:
         # can't find any thing from es
         # print("Nothing matched!")
@@ -213,7 +216,8 @@ def string_similar(s1, s2):
 
 def similarity_checking(index_name, file_path):
     context = get_context(file_path)
-
+    #dulpicated_dic is used to store duplicated context. Titile:Context
+    duplicated_dic={}
     if context == '':
         print('something wrong with this file!')
     else:
@@ -231,6 +235,7 @@ def similarity_checking(index_name, file_path):
             context_str = ' '.join(slide_window)
             match_flag = es_search(index_name, context_str)
             if not match_flag:
+
                 current_position = current_position + 1
                 window_size = 13
                 slide_window = context[current_position:current_position + window_size]
@@ -246,14 +251,14 @@ def similarity_checking(index_name, file_path):
                 match_flag = es_search(index_name, context_str)
             if window_size>13:
                 duplicated_context_number += (window_size -1)
-                print("current duplicated words ", duplicated_context_number)
-            # print(duplicated_context_number)
-            # update slide window
             current_position = current_position + window_size
             window_size = 13
             slide_window = context[current_position:current_position + window_size]
-            print(current_position)
         print("duplicated context number", duplicated_context_number)
         print("total number of this paper", len(context))
         duplicated_rate = duplicated_context_number / len(context)
         print("duplicated rate of this document is ", duplicated_rate)
+        for title, context in duplicated_dic.items():
+            print('Duplicated Paper Titile: ', title)
+            print('Duplicated Context: ', context)
+            print('='*100)

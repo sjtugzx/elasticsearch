@@ -53,9 +53,9 @@ class ElasticObj(object):
                         "type":"text",
                         "index": False
                     },
-                    "year":{
-                        "type":"short",
-                        "index":False
+                    "year": {
+                        "type": "short",
+                        "index": False
                     },
                     "context": {
                         "type": "text",
@@ -96,16 +96,21 @@ class ElasticObj(object):
         ACTIONS = []
         i = 1
         for data in dataset:
+            print(data['title'])
+            print(data['year'])
+            print(data['context'])
             action = {
                 "_index": self.index_name,
                 "_id": i,  # _id 也可以默认生成，不赋值
                 "_source": {
+                    "title": data['title'],
+                    "year":data['year'],
                     "context": data['context']
                 }
             }
             i += 1
             ACTIONS.append(action)
-        print(ACTIONS[0])
+        # print(ACTIONS[0])
         insert_index = helpers.bulk(self.es, ACTIONS)
         # print(insert_index)
 

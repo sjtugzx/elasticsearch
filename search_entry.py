@@ -49,8 +49,8 @@ def post_index(info_dic):
         if file[-4:] == '.txt':
             txt_num += 1
             crawlID = file[:-4]
-            title = info_dic[crawlID][0]
-            year = info_dic[crawlID][1]
+            title = info_dic[crawlID][1]
+            year = info_dic[crawlID][0]
             path = os.path.join('/home/troykuo/target', file)
             data = operation.get_context(path)
             if not (data == ''):
@@ -67,10 +67,13 @@ def post_index(info_dic):
 
 if __name__ == '__main__':
     # extract information from database. Listformat[year, title, crawlID, PDFPath]
+    # es=ElasticObj('geo')
+    # es.delete_index()
     # information = operation.extract_info()
     # info_dic = info_Dic(information)
+    # post_index(info_dic)
     # print(info_dic)
     # with mp.Pool(10) as pool:
     #     pool.map(extract_convert, information)
-    # post_index(info_dic)
+
     operation.similarity_checking('geo', "data/text.txt")
