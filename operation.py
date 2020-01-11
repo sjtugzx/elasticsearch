@@ -196,17 +196,17 @@ def es_search(index_name, info, ip='10.10.10.10'):
     result = es.search(index=index_name, size=50, body=search_body)
     similar_text = []
     for hit in result['hits']['hits']:
-        print(hit)
+        value=[hit['_source']['title'],hit['_source']['year'],hit['_source']['context']]
         # print(hit['_source']['context'])
-        similar_text.append(hit['_source']['context'])
-    # print(similar_text)
-    if len(similar_text) == 0:
-        # can't find any thing from es
-        # print("Nothing matched!")
+        similar_text.append(value)
+        # print(similar_text)
+    return similar_text
+
+
+def check(similar_text):
+    if len(similar_text)==0:
         return False
     else:
-        # match_phrase
-        # print("The context is matched!")
         return True
 
 
@@ -217,7 +217,7 @@ def string_similar(s1, s2):
 def similarity_checking(index_name, file_path):
     context = get_context(file_path)
     #dulpicated_dic is used to store duplicated context. Titile:Context
-    duplicated_dic={}
+    duplicated_list=[]
     if context == '':
         print('something wrong with this file!')
     else:
@@ -233,23 +233,34 @@ def similarity_checking(index_name, file_path):
 
         while len(slide_window) != 0:
             context_str = ' '.join(slide_window)
-            match_flag = es_search(index_name, context_str)
+            es_value = es_search(index_name, context_str)
+            match_flag=check(es_value)
             if not match_flag:
 
                 current_position = current_position + 1
                 window_size = 13
                 slide_window = context[current_position:current_position + window_size]
                 continue
+            title=es_value[0][0]
+            year=es_value[0][1]
             while match_flag:
                 # increase window size by one and update slide_window
                 window_size += 1
                 if current_position + window_size > len(context):
                     window_size = len(context)-current_position+1
                     break
+                old_window=context[current_position:current_position+window_size-1]
+                old_str=' '.join(old_window)
+
                 slide_window = context[current_position:current_position + window_size]
                 context_str = ' '.join(slide_window)
-                match_flag = es_search(index_name, context_str)
+                es_value = es_search(index_name, context_str)
+
+                match_flag = check(es_value)
             if window_size>13:
+
+                duplicated_str=old_str
+                duplicated_list.append([title,year,duplicated_str])
                 duplicated_context_number += (window_size -1)
             current_position = current_position + window_size
             window_size = 13
@@ -258,7 +269,8 @@ def similarity_checking(index_name, file_path):
         print("total number of this paper", len(context))
         duplicated_rate = duplicated_context_number / len(context)
         print("duplicated rate of this document is ", duplicated_rate)
-        for title, context in duplicated_dic.items():
-            print('Duplicated Paper Titile: ', title)
-            print('Duplicated Context: ', context)
+        for du_context in duplicated_list:
+            print('Duplicated Paper Titile: ', du_context[0])
+            print('This paper year is: ', du_context[1])
+            print('Duplicated Context: ', du_context[2])
             print('='*100)
