@@ -37,23 +37,17 @@ def extract_convert(info):
                     print("Can't parse this file. Because of some problem!!!!!!!!!!!!!")
 
 
-if __name__ == '__main__':
-    # extract information from database. Listformat[year, title, crawlID, PDFPath]
-    info_dic = information = operation.extract_info()
-
-    info_Dic(information)
-
-    with mp.Pool(10) as pool:
-        pool.map(extract_convert, information)
-
+def post_index(info_dic):
     # create es index
     geo_es = ElasticObj('geo')
     geo_es.create_index()
     file_list = os.listdir('/home/troykuo/target')
     dataset = []
+    txt_num = 0
     for file in file_list:
         # get context of the txt file
         if file[-4:] == '.txt':
+            txt_num += 1
             crawlID = file[:-4]
             title = info_dic[crawlID][0]
             year = info_dic[crawlID][1]
@@ -68,5 +62,15 @@ if __name__ == '__main__':
 
     geo_es.bulk_index_data(dataset)
     print('=' * 150)
+    print('the number of txt files is: ', txt_num)
 
-    #     # operation.similarity_checking('acm', "data/text.txt")
+
+if __name__ == '__main__':
+    # extract information from database. Listformat[year, title, crawlID, PDFPath]
+    # information = operation.extract_info()
+    # info_dic = info_Dic(information)
+    # print(info_dic)
+    # with mp.Pool(10) as pool:
+    #     pool.map(extract_convert, information)
+    # post_index(info_dic)
+    operation.similarity_checking('geo', "data/text.txt")
