@@ -91,10 +91,14 @@ def extract_info():
             # print(data)
     print(len(paperInfo))
     db.close()
+    with open('data/paperInfo.txt', 'w') as f:
+        for p in paperInfo:
+            f.write(p[3])
+            f.write('\n')
     return paperInfo
 
 
-def parse(DataIO, save_path):
+def parse(DataIO, save_path, paperID):
     '''
     It is used to pare PDF, and save the content to the target path
     '''
@@ -105,12 +109,18 @@ def parse(DataIO, save_path):
         doc = PDFDocument(parser)
     except PDFSyntaxError:
         print("can't parse this file!")
+        with open('data/nonpdfdoc.txt', 'a') as f:
+            f.write(paperID)
+            f.write('\n')
         return
     # link document and parser
     parser.set_document(doc)
     # check if the document can be converted to text
     if not doc.is_extractable:
         print("Can't Parse this File! Ignore it and keep parsing")
+        with open('data/parseFailed.txt', 'a') as f:
+            f.write(paperID)
+            f.write('\n')
         raise PDFTextExtractionNotAllowed
     else:
         # create pdf source manager
@@ -134,6 +144,9 @@ def parse(DataIO, save_path):
                             f.write(result + '\n')
                             # print("Parse pdf successfully")
                 except:
+                    with open('data/parseFailed.txt', 'a') as f:
+                        f.write(paperID)
+                        f.write('\n')
                     print("Failed")
 
 
@@ -143,13 +156,13 @@ def change_file_name(source_path, target_path, paperID):
     source_name = source_path + '/response_body'
     target_name = target_path + '/response_body'
     copyfile(source_name, target_name)
-    print("Copy file!")
+    # print("Copy file!")
     # rename file name
 
     target_name_pdf = target_path + '/%s.pdf' % paperID
     if not os.path.exists(target_name_pdf):
         os.rename(target_name, target_name_pdf)
-        print("add suffix successfully!")
+        # print("add suffix successfully!")
     return target_name_pdf
 
 

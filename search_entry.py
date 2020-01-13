@@ -26,15 +26,22 @@ def extract_convert(info):
     # create a dictionary with crawl:[p_year,p_title]
     file_name = operation.change_file_name(p_path, '/home/troykuo/target', paper_ID)
     target_path = file_name[:-3] + 'txt'
-    if (os.path.getsize(file_name) / float(1024 * 1024)) > 20:
+    if (os.path.getsize(file_name) / float(1024 * 1024)) > 60:
+        with open('data/largefiles.txt', 'a') as f:
+            f.write(paper_ID)
+            f.write('\n')
         print("Can't parth such large size file %s." % file_name)
     else:
         if not os.path.exists(target_path):
             with open(r'%s' % file_name, 'rb') as dataIO:
                 try:
-                    operation.parse(dataIO, target_path)
+                    operation.parse(dataIO, target_path,paper_ID)
+                    print("parse successfully")
                 except:
                     print("Can't parse this file. Because of some problem!!!!!!!!!!!!!")
+                    with open('data/parseFailed.txt', 'a') as f:
+                        f.write(paper_ID)
+                        f.write('\n')
 
 
 def post_index(info_dic):
@@ -66,14 +73,16 @@ def post_index(info_dic):
 
 
 if __name__ == '__main__':
+
+
     # extract information from database. Listformat[year, title, crawlID, PDFPath]
     # es=ElasticObj('geo')
     # es.delete_index()
-    # information = operation.extract_info()
-    # info_dic = info_Dic(information)
     # post_index(info_dic)
-    # print(info_dic)
-    # with mp.Pool(10) as pool:
-    #     pool.map(extract_convert, information)
+    information = operation.extract_info()
+    info_dic=info_Dic(information)
 
-    operation.similarity_checking('geo', "data/text.txt")
+    with mp.Pool(10) as pool:
+        pool.map(extract_convert, information)
+
+    # operation.similarity_checking('geo', "data/text.txt")
