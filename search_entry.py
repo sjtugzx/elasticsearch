@@ -82,7 +82,7 @@ if __name__ == '__main__':
     information = operation.extract_info()
     info_dic=info_Dic(information)
 
-    with mp.Pool(10) as pool:
+    with mp.Pool(200) as pool:
         pool.map(extract_convert, information)
 
     # operation.similarity_checking('geo', "data/text.txt")
